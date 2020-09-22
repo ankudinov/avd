@@ -1,0 +1,2500 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Arista Validated Design collection's documentation">
+      
+      
+      
+        <meta name="author" content="Arista Ansible Team">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>eos_l3ls_evpn - Arista AVD collection</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../docs/stylesheets/extra.material.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ansible-role-eos_l3ls_evpn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="Arista AVD collection" class="md-header-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Arista AVD collection
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              eos_l3ls_evpn
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Arista AVD collection" class="md-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Arista AVD collection
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/installation/requirements/" title="Requirements" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/installation/setup-environement/" title="Setup environment" class="md-nav__link">
+      Setup environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/installation/setup-galaxy/" title="Ansible-galaxy installation" class="md-nav__link">
+      Ansible-galaxy installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/installation/setup-git/" title="Git installation" class="md-nav__link">
+      Git installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      How-To
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="How-To" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        How-To
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/how-to/first-project/" title="Build your first AVD project" class="md-nav__link">
+      Build your first AVD project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/how-to/lab-with-nat/" title="Use NAT to access eAPI" class="md-nav__link">
+      Use NAT to access eAPI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Roles documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Roles documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Roles documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        eos_l3ls_evpn
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="eos_l3ls_evpn" class="md-nav__link md-nav__link--active">
+      eos_l3ls_evpn
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-role-eos_l3ls_evpn" class="md-nav__link">
+    Ansible Role: eos_l3ls_evpn
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Role: eos_l3ls_evpn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-inputs-and-outputs" class="md-nav__link">
+    Role Inputs and Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-variables" class="md-nav__link">
+    Role Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Role Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-device-configuration-variables" class="md-nav__link">
+    Common Device Configuration Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric-underlay-and-overlay-topology-variables" class="md-nav__link">
+    Fabric Underlay and Overlay Topology Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric-topology-variables" class="md-nav__link">
+    Fabric Topology Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-variable" class="md-nav__link">
+    Type Variable
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Variable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spine-variables" class="md-nav__link">
+    Spine Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l3-leaf-variables" class="md-nav__link">
+    L3 Leaf Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l2-leafs-variables" class="md-nav__link">
+    L2 Leafs Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-services-variables-vrfsvlans" class="md-nav__link">
+    Network Services Variables - VRFs/VLANs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-edge-port-connectivity" class="md-nav__link">
+    Server Edge Port Connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Server Edge Port Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-attached-server-scenario" class="md-nav__link">
+    Single attached server scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlag-dual-attached-server-scenario" class="md-nav__link">
+    MLAG dual-attached server scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evpn-aa-esi-dual-attached-server-scenario" class="md-nav__link">
+    EVPN A/A ESI dual-attached server scenario
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-to-attach-additional-configlets" class="md-nav__link">
+    Variable to attach additional configlets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-handlers" class="md-nav__link">
+    Event Handlers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-specific-settings" class="md-nav__link">
+    Platform Specific settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veos-lab-know-caveats-and-recommendations" class="md-nav__link">
+    vEOS-LAB Know Caveats and Recommendations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eos_cli_config_gen/" title="eos_cli_config_gen" class="md-nav__link">
+      eos_cli_config_gen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../cvp_configlet_upload/" title="cvp_configlet_upload" class="md-nav__link">
+      cvp_configlet_upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eos_config_deploy_cvp/" title="eos_config_deploy_cvp" class="md-nav__link">
+      eos_config_deploy_cvp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eos_config_deploy_eapi/" title="eos_config_deploy_eapi" class="md-nav__link">
+      eos_config_deploy_eapi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../eos_validate_state/" title="eos_validate_state" class="md-nav__link">
+      eos_validate_state
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../build_output_folders/" title="build_output_folders" class="md-nav__link">
+      build_output_folders
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Modules documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Modules documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Modules documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/modules/inventory_to_container.rst/" title="Module Inventory to containers" class="md-nav__link">
+      Module Inventory to containers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/modules/configlet_build_config.rst/" title="Module Configlet Build configuration" class="md-nav__link">
+      Module Configlet Build configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      External resources
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="External resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        External resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html" title="Ansible collection user guide" class="md-nav__link">
+      Ansible collection user guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/index.html" title="Ansible User guide" class="md-nav__link">
+      Ansible User guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/contributing/" title="Contribution Guide" class="md-nav__link">
+      Contribution Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://galaxy.ansible.com/arista/cvp" title="Ansible Galaxy page" class="md-nav__link">
+      Ansible Galaxy page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista AVD Modules" class="md-nav__link">
+      Arista AVD Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/arista-netdevops-community/avd-install" title="Arista Installation Script" class="md-nav__link">
+      Arista Installation Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/netdevops-examples" title="Arista Automation Examples" class="md-nav__link">
+      Arista Automation Examples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-role-eos_l3ls_evpn" class="md-nav__link">
+    Ansible Role: eos_l3ls_evpn
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Role: eos_l3ls_evpn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-inputs-and-outputs" class="md-nav__link">
+    Role Inputs and Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#role-variables" class="md-nav__link">
+    Role Variables
+  </a>
+  
+    <nav class="md-nav" aria-label="Role Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-device-configuration-variables" class="md-nav__link">
+    Common Device Configuration Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric-underlay-and-overlay-topology-variables" class="md-nav__link">
+    Fabric Underlay and Overlay Topology Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fabric-topology-variables" class="md-nav__link">
+    Fabric Topology Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#type-variable" class="md-nav__link">
+    Type Variable
+  </a>
+  
+    <nav class="md-nav" aria-label="Type Variable">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#spine-variables" class="md-nav__link">
+    Spine Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l3-leaf-variables" class="md-nav__link">
+    L3 Leaf Variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l2-leafs-variables" class="md-nav__link">
+    L2 Leafs Variables
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-services-variables-vrfsvlans" class="md-nav__link">
+    Network Services Variables - VRFs/VLANs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-edge-port-connectivity" class="md-nav__link">
+    Server Edge Port Connectivity
+  </a>
+  
+    <nav class="md-nav" aria-label="Server Edge Port Connectivity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-attached-server-scenario" class="md-nav__link">
+    Single attached server scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mlag-dual-attached-server-scenario" class="md-nav__link">
+    MLAG dual-attached server scenario
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#evpn-aa-esi-dual-attached-server-scenario" class="md-nav__link">
+    EVPN A/A ESI dual-attached server scenario
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-to-attach-additional-configlets" class="md-nav__link">
+    Variable to attach additional configlets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-handlers" class="md-nav__link">
+    Event Handlers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-specific-settings" class="md-nav__link">
+    Platform Specific settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#veos-lab-know-caveats-and-recommendations" class="md-nav__link">
+    vEOS-LAB Know Caveats and Recommendations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/roles/eos_l3ls_evpn/README.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>eos_l3ls_evpn</h1>
+                
+                <h2 id="ansible-role-eos_l3ls_evpn">Ansible Role: eos_l3ls_evpn<a class="headerlink" href="#ansible-role-eos_l3ls_evpn" title="Permanent link">#</a></h2>
+<p><strong>Table of Contents:</strong></p>
+<ul>
+<li><a href="#ansible-role-eos_l3ls_evpn">Ansible Role: eos_l3ls_evpn</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
+<li><a href="#requirements">Requirements</a></li>
+<li><a href="#role-variables">Role Variables</a><ul>
+<li><a href="#common-device-configuration-variables">Common Device Configuration Variables</a></li>
+<li><a href="#fabric-underlay-and-overlay-topology-variables">Fabric Underlay and Overlay Topology Variables</a></li>
+<li><a href="#fabric-topology-variables">Fabric Topology Variables</a></li>
+<li><a href="#type-variable">Type Variable</a></li>
+<li><a href="#spine-variables">Spine Variables</a></li>
+<li><a href="#l3-leaf-variables">L3 Leaf Variables</a></li>
+<li><a href="#l2-leafs-variables">L2 Leafs Variables</a></li>
+<li><a href="#network-services-variables---vrfsvlans">Network Services Variables - VRFs/VLANs</a></li>
+<li><a href="#server-edge-port-connectivity">Server Edge Port Connectivity</a></li>
+<li><a href="#single-attached-server-scenario">Single attached server scenario</a></li>
+<li><a href="#mlag-dual-attached-server-scenario">MLAG dual-attached server scenario</a></li>
+<li><a href="#evpn-aa-esi-dual-attached-server-scenario">EVPN A/A ESI dual-attached server scenario</a></li>
+<li><a href="#variable-to-attach-additional-configlets">Variable to attach additional configlets</a></li>
+<li><a href="#event-handlers">Event Handlers</a></li>
+<li><a href="#platform-specific-settings">Platform Specific settings</a></li>
+<li><a href="#veos-lab-know-caveats-and-recommendations">vEOS-LAB Know Caveats and Recommendations</a></li>
+</ul>
+</li>
+<li><a href="#license">License</a></li>
+</ul>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h3>
+<p><strong>eos_l3ls_evpn</strong>, is a role that provides an abstracted data model to deploy a L3 Leaf and Spine fabric leveraging VXLAN data-plane with an EVPN control-plane.</p>
+<p>The <strong>eos_l3ls_evpn</strong> role:</p>
+<ul>
+<li>Enables network engineers to deploy Arista L3 Leaf &amp; Spine fabric underlay and overlay network services effectively and with consistency.</li>
+<li>Designed to be extended easily, leveraging a <strong><em>&ldquo;stackable template architecture&rdquo;</em></strong>.</li>
+<li>Designed to be used with the <strong>eos_l3ls_config_gen</strong> role to generate a complete switch configuration and applied using a config replace strategy with either</li>
+<li><strong>eos_config_deploy_eapi</strong> role.</li>
+<li><strong>eos_config_deploy_cvp</strong> role.</li>
+<li>Designed to generate the intended configuration offline, without relying on switch current state information.</li>
+<li>Facilitates the evaluation of the configuration prior to deployment with tools like <a href="https://www.batfish.org/">Batfish</a></li>
+</ul>
+<h3 id="role-inputs-and-outputs">Role Inputs and Outputs<a class="headerlink" href="#role-inputs-and-outputs" title="Permanent link">#</a></h3>
+<p>Figure 1 below provides a visualization of the roles inputs, and outputs and tasks in order executed by the role.</p>
+<p><img alt="Figure 1: Ansible Role eos_l3ls_evpn" src="media/role_eos_l3ls_evpn.gif" /></p>
+<p><strong>Inputs:</strong></p>
+<ul>
+<li>Desired variables are defined in: role defaults, group_vars, and host_vars variables.</li>
+<li>If desired, the role can be extended to leverage data from dynamic sources such as an IPAM or CMDB.</li>
+</ul>
+<p><strong>Outputs:</strong></p>
+<ul>
+<li>A structured EOS configuration file in yaml format. This provides the following benefits:</li>
+<li>First, this allows us to naturally detect duplicate entries from inputs, as yaml dictionaries don&rsquo;t process duplicate keys.</li>
+<li>Leverage the structured data to create eos cli configuration.</li>
+<li>Leverage the structured data to create end user documentation.</li>
+<li>Leverage the structured data for pre and post fabric tests.</li>
+<li>Fabric Documentation in Markdown format.</li>
+<li>Leaf and Spine Topology summary in csv format.</li>
+</ul>
+<p><strong>Tasks:</strong></p>
+<ol>
+<li>Generate device configuration in a structured format (yaml).</li>
+<li>Include device structured configuration that was previously generated.</li>
+<li>Generate VXLAN/EVPN fabric documentation in Markdown format.</li>
+<li>Generate Leaf and Spine point-to-point links summary in CSV format.</li>
+<li>Generate Leaf and Spine physical topology summary in CSV format.</li>
+</ol>
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<p>Requirements are located here: <a href="../..#Requirements">avd-requirements</a></p>
+<h3 id="role-variables">Role Variables<a class="headerlink" href="#role-variables" title="Permanent link">#</a></h3>
+<p>The role variables are documented inline within yaml formated output with: &ldquo;&lt; &gt;&rdquo;
+Some variables are required while others are optional.
+Default values, are stored in the role defaults <a href="defaults/main.yml">main.yml</a> file.</p>
+<p>Role variable are grouped by configuration elements and are typically stored in different group_vars files.</p>
+<h4 id="common-device-configuration-variables">Common Device Configuration Variables<a class="headerlink" href="#common-device-configuration-variables" title="Permanent link">#</a></h4>
+<ul>
+<li>Common device configuration variables are for elements not related specifically to the fabric configuration.</li>
+<li>The variables should be applied to all devices within the fabric and can be shared with other infrastructure elements.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clock timezone | Optional</span>
+<span class="nt">timezone</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; timezone &gt;</span>
+
+<span class="c1"># Dictionary of local users | Required</span>
+<span class="nt">local_users</span><span class="p">:</span>
+  <span class="nt">&lt; username_1 &gt;</span><span class="p">:</span>
+    <span class="nt">privilege</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; (1-15) Initial privilege level with local EXEC authorization &gt;</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Specify a role for the user &gt;</span>
+    <span class="nt">no_password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | do not configure a password for given username. sha512_password MUST not be defined for this user. &gt;</span>
+    <span class="nt">sha512_password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">SHA512</span><span class="nv"> </span><span class="s">ENCRYPTED</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+
+  <span class="nt">&lt; username_2 &gt;</span><span class="p">:</span>
+    <span class="nt">privilege</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; (1-15) Initial privilege level with local EXEC authorization &gt;</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Specify a role for the user &gt;</span>
+    <span class="nt">sha512_password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">SHA512</span><span class="nv"> </span><span class="s">ENCRYPTED</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+
+<span class="c1"># Management eAPI | Required</span>
+<span class="c1"># Default is https management eAPI enabled</span>
+<span class="nt">management_eapi</span><span class="p">:</span>
+  <span class="nt">enable_http</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; false &gt;</span>
+  <span class="nt">enable_https</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; true &gt;</span>
+
+<span class="c1"># CloudVision - Telemetry Agent (TerminAttr) configuration | Optional</span>
+<span class="nt">cvp_instance_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+<span class="l l-Scalar l-Scalar-Plain">or</span>
+<span class="nt">cvp_instance_ips</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+<span class="nt">cvp_ingestauth_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CloudVision Ingest Authentication key &gt;</span>
+<span class="nt">terminattr_ingestgrpcurl_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_number | default -&gt; 9910 &gt;</span>
+<span class="nt">terminattr_smashexcludes</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">smash</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">ale,flexCounter,hardware,kni,pulse,strata</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+<span class="nt">terminattr_ingestexclude</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">ingest</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">/Sysdb/cell/1/agent,/Sysdb/cell/2/agent</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+
+
+<span class="c1"># Management interface configuration | Required</span>
+<span class="nt">mgmt_vrf_routing</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; false &gt;</span>
+<span class="nt">mgmt_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mgmt_interface | default -&gt; Management1 &gt;</span>
+<span class="nt">mgmt_interface_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name | default -&gt; MGMT &gt;</span>
+<span class="nt">mgmt_gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+<span class="c1"># OOB mgmt interface destination networks - override default route</span>
+<span class="nt">mgmt_destination_networks</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+
+<span class="c1"># list of DNS servers | Optional</span>
+<span class="nt">name_servers</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address_1 &gt;</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address_2 &gt;</span>
+
+<span class="c1"># List of NTP Servers IP or DNS name | Optional</span>
+<span class="c1"># The first NTP server in the list will be preferred</span>
+<span class="c1"># NTP request will be sourced from &lt; management_interface_vrf &gt;</span>
+<span class="nt">ntp_servers</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ntp_server_1 &gt;</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ntp_server_1 &gt;</span>
+
+<span class="c1"># Internal vlan allocation order and range | Required</span>
+<span class="nt">internal_vlan_order</span><span class="p">:</span>
+  <span class="nt">allocation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ascending or descending | default -&gt; ascending &gt;</span>
+  <span class="nt">range</span><span class="p">:</span>
+    <span class="nt">beginning</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlan_id | default -&gt; 1006 &gt;</span>
+    <span class="nt">ending</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlan_id | default -&gt; 1199 &gt;</span>
+
+<span class="c1"># Redundancy for chassis platforms with dual supervisors | Optional</span>
+<span class="nt">redundancy</span><span class="p">:</span>
+  <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; sso | rpr &gt;</span>
+
+<span class="c1"># MAC address-table aging time | Optional</span>
+<span class="c1"># Use to change the EOS default of 300</span>
+<span class="nt">mac_address_table</span><span class="p">:</span>
+  <span class="nt">aging_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; time_in_seconds &gt;</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<p>note: Default values are commented</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Timezone</span>
+<span class="nt">timezone</span><span class="p">:</span> <span class="s">&quot;US/Eastern&quot;</span>
+
+<span class="c1"># local users</span>
+<span class="nt">local_users</span><span class="p">:</span>
+  <span class="nt">admin</span><span class="p">:</span>
+    <span class="nt">privilege</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">network-admin</span>
+    <span class="nt">sha512_password</span><span class="p">:</span> <span class="s">&quot;$6$Df86J4/SFMDE3/1K$Hef4KstdoxNDaami37cBquTWOTplC.miMPjXVgQxMe92.e5wxlnXOLlebgPj8Fz1KO0za/RCO7ZIs4Q6Eiq1g1&quot;</span>
+
+  <span class="nt">cvpadmin</span><span class="p">:</span>
+    <span class="nt">privilege</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">network-admin</span>
+    <span class="nt">sha512_password</span><span class="p">:</span> <span class="s">&quot;$6$rZKcbIZ7iWGAWTUM$TCgDn1KcavS0s.OV8lacMTUkxTByfzcGlFlYUWroxYuU7M/9bIodhRO7nXGzMweUxvbk8mJmQl8Bh44cRktUj.&quot;</span>
+
+<span class="c1"># Management eAPI</span>
+<span class="c1"># management_eapi:</span>
+<span class="c1">#   enable_https: true</span>
+
+<span class="c1"># Cloud Vision server information</span>
+<span class="nt">cvp_instance_ips</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.201</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.202</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.203</span>
+<span class="nt">cvp_ingestauth_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">telarista</span>
+<span class="c1"># terminattr_ingestgrpcurl_port: 9910</span>
+<span class="c1"># terminattr_smashexcludes: &quot;ale,flexCounter,hardware,kni,pulse,strata&quot;</span>
+<span class="c1"># terminattr_ingestexclude: &quot;/Sysdb/cell/1/agent,/Sysdb/cell/2/agent</span>
+
+<span class="c1"># Management interface configuration</span>
+<span class="nt">mgmt_gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+<span class="c1"># mgmt_vrf_routing: false</span>
+<span class="c1"># mgmt_interface: Management1</span>
+<span class="c1"># mgmt_interface_vrf: MGMT</span>
+<span class="c1"># OOB mgmt interface destination networks</span>
+<span class="c1"># mgmt_destination_networks:</span>
+<span class="c1">#   - 0.0.0.0/0</span>
+
+<span class="c1"># DNS servers.</span>
+<span class="nt">name_servers</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.1</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">8.8.8.8</span>
+
+<span class="c1"># NTP Servers</span>
+<span class="nt">ntp_servers</span><span class="p">:</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">0.north-america.pool.ntp.org</span>
+ <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">1.north-america.pool.ntp.org</span>
+
+<span class="c1"># Internal vlan allocation order and range</span>
+<span class="c1"># internal_vlan_order:</span>
+<span class="c1">#   allocation: ascending</span>
+<span class="c1">#   range:</span>
+<span class="c1">#     beginning: 1006</span>
+<span class="c1">#     ending: 1199</span>
+
+<span class="c1"># Redundancy for chassis platforms with dual supervisors</span>
+<span class="nt">redundancy</span><span class="p">:</span>
+  <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">sso</span>
+
+<span class="c1"># MAC address-table aging time</span>
+<span class="nt">mac_address_table</span><span class="p">:</span>
+  <span class="nt">aging_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1500</span>
+</code></pre></div>
+
+<h4 id="fabric-underlay-and-overlay-topology-variables">Fabric Underlay and Overlay Topology Variables<a class="headerlink" href="#fabric-underlay-and-overlay-topology-variables" title="Permanent link">#</a></h4>
+<ul>
+<li>The fabric underlay and overlay topology variables, define the elements related to build the L3 Leaf and Spine fabric.</li>
+<li>The following underlay routing protocols are supported:</li>
+<li>BGP (default)</li>
+<li>OSPF.</li>
+<li>ISIS.</li>
+<li>Only summary network addresses need to be defined. IP addresses are then assigned to each node, based on its unique device id.</li>
+<li>To view IP address allocation and consumption, a summary is provided in the auto-generated fabric documentation in Markdown format.</li>
+<li>The variables should be applied to all devices in the fabric.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fabric Name, required to match group_var file name | Required.</span>
+<span class="nt">fabric_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Fabric_Name &gt;</span>
+
+<span class="c1"># Underlay routing protocol | Required.</span>
+<span class="nt">underlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; BGP or OSPF or ISIS | Default -&gt; BGP &gt;</span>
+
+<span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == OSPF</span>
+<span class="nt">underlay_ospf_process_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; process_id | Default -&gt; 100 &gt;</span>
+<span class="nt">underlay_ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area | Default -&gt; 0.0.0.0 &gt;</span>
+<span class="nt">underlay_ospf_max_lsa</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; lsa | Default -&gt; 12000 &gt;</span>
+
+<span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == ISIS</span>
+<span class="nt">isis_area_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis area | Default -&gt; &quot;49.0001&quot; &gt;</span>
+<span class="nt">isis_site_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis site ID | Default -&gt; &quot;0001&quot; &gt;</span>
+
+<span class="c1"># Point to Point Links MTU | Required.</span>
+<span class="nt">p2p_uplinks_mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-9216 | default -&gt; 9000 &gt;</span>
+
+<span class="c1"># IP Summary for Point to Point interfaces between L3 leafs and spines used for underlay peering | Required</span>
+<span class="c1"># Assigned as /31 for each uplink interfaces</span>
+<span class="c1"># Assign network summary larger then:</span>
+<span class="c1"># [ total spines * total potential L3 leafs * 2 * max_l3leaf_to_spine_links(default: 1) ]</span>
+<span class="nt">underlay_p2p_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+
+<span class="c1"># IP address summary for BGP evpn overlay peering loopback for L3 leafs and spines | Required</span>
+<span class="c1"># Assigned as /32 to Loopback0</span>
+<span class="c1"># Assign range larger then:</span>
+<span class="c1"># [ total spines + total potential L3 leafs ]</span>
+<span class="nt">overlay_loopback_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+
+<span class="c1"># IP address summary VTEP VXLAN Tunnel source loopback1 IP for L3 leafs | Required</span>
+<span class="c1"># Assigned as /32 to Loopback1</span>
+<span class="c1"># Assign range larger then total L3 leafs</span>
+<span class="nt">vtep_loopback_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+
+<span class="c1"># IP address summary used for MLAG Peer Link (control link) and underlay L3 peering | *Required</span>
+<span class="c1"># * When MLAG leafs present in topology.</span>
+<span class="c1"># Assign range larger then total: L3 Leafs + 2 ]</span>
+<span class="nt">mlag_ips</span><span class="p">:</span>
+  <span class="nt">leaf_peer_l3</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+  <span class="nt">mlag_peer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
+
+<span class="c1"># BGP peer groups encrypted password</span>
+<span class="c1"># IPv4_UNDERLAY_PEERS and MLAG_IPv4_UNDERLAY_PEER | Required when &lt; underlay_routing_protocol &gt; == BGP</span>
+<span class="c1"># EVPN_OVERLAY_PEERS | Required</span>
+<span class="c1"># Leverage an Arista EOS switch to generate the encrypted password</span>
+<span class="nt">bgp_peer_groups</span><span class="p">:</span>
+  <span class="nt">IPv4_UNDERLAY_PEERS</span><span class="p">:</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+  <span class="nt">MLAG_IPv4_UNDERLAY_PEER</span><span class="p">:</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+  <span class="nt">EVPN_OVERLAY_PEERS</span><span class="p">:</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted</span><span class="nv"> </span><span class="s">password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+
+<span class="c1"># Spine BGP Tuning | Optional.</span>
+<span class="nt">spine_bgp_defaults</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">update wait-for-convergence</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">update wait-install</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no bgp default ipv4-unicast</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">distance bgp 20 200 200</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart restart-time 300</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart</span>
+
+<span class="c1"># Leaf BGP Tuning | Optional.</span>
+<span class="nt">leaf_bgp_defaults</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">update wait-install</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no bgp default ipv4-unicast</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">distance bgp 20 200 200</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart restart-time 300</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart</span>
+
+<span class="c1"># Enable vlan aware bundles for EVPN MAC-VRF | Required.</span>
+<span class="nt">vxlan_vlan_aware_bundles</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; false &gt;</span>
+
+<span class="c1"># BFD Multihop tunning | Required.</span>
+<span class="nt">bfd_multihop</span><span class="p">:</span>
+  <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; | default -&gt; 300 &gt;</span>
+  <span class="nt">min_rx</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; | default -&gt; 300 &gt;</span>
+  <span class="nt">multiplier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; | default -&gt; 3 &gt;</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<p>note: Default values are commented</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in FABRIC.yml</span>
+
+<span class="nt">fabric_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DC1_FABRIC</span>
+
+<span class="c1"># underlay_routing_protocol: BGP</span>
+
+<span class="c1"># underlay_ospf_process_id: 100</span>
+<span class="c1"># underlay_ospf_area: 0.0.0.0</span>
+<span class="c1"># underlay_ospf_max_lsa: 12000</span>
+
+<span class="c1"># p2p_uplinks_mtu: 9000</span>
+
+<span class="nt">underlay_p2p_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">172.31.255.0/24</span>
+
+<span class="nt">overlay_loopback_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.255.0/24</span>
+
+<span class="nt">vtep_loopback_network_summary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.254.0/24</span>
+
+<span class="nt">mlag_ips</span><span class="p">:</span>
+  <span class="nt">leaf_peer_l3</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.251.0/24</span>
+  <span class="nt">mlag_peer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.252.0/24</span>
+
+<span class="nt">bgp_peer_groups</span><span class="p">:</span>
+  <span class="nt">IPv4_UNDERLAY_PEERS</span><span class="p">:</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;AQQvKeimxJu+uGQ/yYvv9w==&quot;</span>
+  <span class="nt">EVPN_OVERLAY_PEERS</span><span class="p">:</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;q+VNViP5i4rVjW1cxFv2wA==&quot;</span>
+  <span class="nt">MLAG_IPv4_UNDERLAY_PEER</span><span class="p">:</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;vnEaG8gMeQf3d3cN6PktXQ==&quot;</span>
+
+<span class="c1"># spine_bgp_defaults:</span>
+  <span class="c1"># - update wait-for-convergence</span>
+  <span class="c1"># - update wait-install</span>
+  <span class="c1"># - no bgp default ipv4-unicast</span>
+  <span class="c1"># - distance bgp 20 200 200</span>
+  <span class="c1"># - graceful-restart restart-time 300</span>
+  <span class="c1"># - graceful-restart</span>
+
+<span class="c1"># leaf_bgp_defaults:</span>
+  <span class="c1"># - update wait-install</span>
+  <span class="c1"># - no bgp default ipv4-unicast</span>
+  <span class="c1"># - distance bgp 20 200 200</span>
+  <span class="c1"># - graceful-restart restart-time 300</span>
+  <span class="c1"># - graceful-restart</span>
+
+<span class="c1"># vxlan_vlan_aware_bundles: false</span>
+
+<span class="c1"># bfd_multihop:</span>
+<span class="c1">#   interval: 300</span>
+<span class="c1">#   min_rx: 300</span>
+<span class="c1">#   multiplier: 3</span>
+</code></pre></div>
+
+<h4 id="fabric-topology-variables">Fabric Topology Variables<a class="headerlink" href="#fabric-topology-variables" title="Permanent link">#</a></h4>
+<p>The fabric topology variables define the connectivity between the spines, L3 leafs, and L2 leafs.
+The variables should be applied to all devices in the fabric.</p>
+<p><img alt="Figure 2: Topology - naming convention" src="media/topology.gif" /></p>
+<ul>
+<li>Connectivity is defined from the child&rsquo;s device perspective.</li>
+<li>Source uplink interfaces and parent interfaces are defined on the child.</li>
+<li>A static unique identifier (id) is assigned to each device.</li>
+<li>This is leveraged to derive the IP address assignment from each summary defined in the Fabric Underlay and Overlay Topology Variables.</li>
+<li>Within the l3_leaf and l2_leaf dictionary variables, defaults can be defined.</li>
+<li>This reduces user input requirements, limiting errors.</li>
+<li>The default variables can be overridden when defined under the node groups.</li>
+<li>The ability to define a super-spine layer is planned for a future release of ansible-avd.</li>
+</ul>
+<h4 id="type-variable">Type Variable<a class="headerlink" href="#type-variable" title="Permanent link">#</a></h4>
+<ul>
+<li>The <code>type:</code> variable needs to be defined for each device in the fabric.</li>
+<li>This is leveraged to load to appropriate template, to generate the configuration.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># define the layer type</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spine | l3leaf | l2leaf &gt;</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in SPINE.yml file</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">spine</span>
+
+<span class="c1"># Defined in L3LEAFS.yml</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">l3leaf</span>
+
+<span class="c1"># Defined in L2LEAFS.yml</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">l2leaf</span>
+</code></pre></div>
+
+<h5 id="spine-variables">Spine Variables<a class="headerlink" href="#spine-variables" title="Permanent link">#</a></h5>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in FABRIC.yml</span>
+
+<span class="nt">spine</span><span class="p">:</span>
+
+  <span class="c1"># Arista platform family | Required.</span>
+  <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
+
+  <span class="c1"># Spine BGP AS | Required.</span>
+  <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
+
+  <span class="c1"># Accepted L3 leaf bgp as range | Required.</span>
+  <span class="nt">leaf_as_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as_start-bgp_as_end &gt;</span>
+
+  <span class="c1"># Specify dictionary of Spine nodes | Required.</span>
+  <span class="nt">nodes</span><span class="p">:</span>
+    <span class="nt">&lt; inventory_hostname &gt;</span><span class="p">:</span>
+
+      <span class="c1"># Unique identifier | Required.</span>
+      <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+
+      <span class="c1"># Node management IP address | Required.</span>
+      <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">&lt; inventory_hostname &gt;</span><span class="p">:</span>
+      <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+      <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in FABRIC.yml</span>
+
+<span class="nt">spine</span><span class="p">:</span>
+  <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vEOS-LAB</span>
+  <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65001</span>
+  <span class="nt">leaf_as_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65101-65132</span>
+  <span class="nt">nodes</span><span class="p">:</span>
+    <span class="nt">DC1-SPINE1</span><span class="p">:</span>
+      <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+      <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.101/24</span>
+    <span class="nt">DC1-SPINE2</span><span class="p">:</span>
+      <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+      <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.102/24</span>
+</code></pre></div>
+
+<h5 id="l3-leaf-variables">L3 Leaf Variables<a class="headerlink" href="#l3-leaf-variables" title="Permanent link">#</a></h5>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">l3leaf</span><span class="p">:</span>
+
+  <span class="c1"># L3 Leaf default variables, can be overridden when defined under &lt; node_group &gt;.</span>
+  <span class="nt">defaults</span><span class="p">:</span>
+
+    <span class="c1"># Arista platform family. | Required</span>
+    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
+
+    <span class="c1"># Parent spine switches (list), corresponding to uplink_to_spine_interfaces and spine_interfaces | Required.</span>
+    <span class="nt">spines</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; spine_inventory_hostname &gt;</span> <span class="p p-Indicator">]</span>
+
+    <span class="c1"># Uplink to spine interfaces (list), interface located on L3 Leaf,</span>
+    <span class="c1"># corresponding to spines and spine_interfaces | Required.</span>
+    <span class="nt">uplink_to_spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+    <span class="c1"># Point-to-Point interface speed - will apply to L3 Leaf and Spine switches | Optional.</span>
+    <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
+
+    <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
+    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
+
+    <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
+    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
+
+    <span class="c1"># Spanning tree priority | Required.</span>
+    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
+
+    <span class="c1"># Virtual router mac address for anycast gateway | Required.</span>
+    <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mac address &gt;</span>
+
+  <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
+  <span class="c1"># and allowed L3 and L2 network services.</span>
+  <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
+  <span class="nt">node_groups</span><span class="p">:</span>
+
+    <span class="c1"># node_group_1, will result in stand-alone leaf.</span>
+    <span class="nt">&lt; node_group_1 &gt;</span><span class="p">:</span>
+
+      <span class="c1"># L3 Leaf BGP AS. | Required.</span>
+      <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
+
+      <span class="c1"># Filter L3 and L2 network services based on tenant and tags ( and operation filter )| Optional</span>
+      <span class="c1"># If filter is not defined will default to all</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Define one or two nodes - same name as inventory_hostname | Required</span>
+      <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+
+        <span class="c1"># First node</span>
+        <span class="nt">&lt; l3_leaf_inventory_hostname_1 &gt;</span><span class="p">:</span>
+
+          <span class="c1"># Unique identifier | Required.</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+
+          <span class="c1"># Node management IP address | Required.</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+          <span class="c1"># Spine interfaces (list), interface located on Spine,</span>
+          <span class="c1"># corresponding to spines and uplink_to_spine_interfaces | Required.</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span>  <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span> <span class="p p-Indicator">]</span>
+
+    <span class="c1"># node_group_2, will result in MLAG pair.</span>
+    <span class="nt">&lt; node_group_2 &gt;</span><span class="p">:</span>
+      <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bgp_as &gt;</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+
+        <span class="c1"># Second node</span>
+        <span class="nt">&lt; l3_leaf_inventory_hostname_2 &gt;</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span>  <span class="nv">&lt; ethernet_interface_2 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+        <span class="c1"># Third node</span>
+        <span class="nt">&lt; l3_leaf_inventory_hostname_3 &gt;</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span>  <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in FABRIC.yml</span>
+
+<span class="nt">l3leaf</span><span class="p">:</span>
+  <span class="nt">defaults</span><span class="p">:</span>
+    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vEOS-LAB</span>
+    <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65100</span>
+    <span class="nt">spines</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SPINE1</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SPINE2</span> <span class="p p-Indicator">]</span>
+    <span class="nt">uplink_to_spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet1</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet2</span> <span class="p p-Indicator">]</span>
+    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet3</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet4</span> <span class="p p-Indicator">]</span>
+    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mstp</span>
+    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4096</span>
+    <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">00:1c:73:00:dc:01</span>
+  <span class="nt">node_groups</span><span class="p">:</span>
+    <span class="nt">DC1_LEAF1</span><span class="p">:</span>
+      <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65101</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Tenant_A</span><span class="p p-Indicator">,</span> <span class="nv">Tenant_B</span><span class="p p-Indicator">,</span> <span class="nv">Tenant_C</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+        <span class="nt">DC1-LEAF1A</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.105/24</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet1</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet1</span> <span class="p p-Indicator">]</span>
+    <span class="nt">DC1_LEAF2</span><span class="p">:</span>
+      <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65102</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Tenant_A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span><span class="p p-Indicator">,</span> <span class="nv">web</span><span class="p p-Indicator">,</span> <span class="nv">app</span><span class="p p-Indicator">,</span> <span class="nv">db</span><span class="p p-Indicator">,</span> <span class="nv">vmotion</span><span class="p p-Indicator">,</span> <span class="nv">nfs</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+        <span class="nt">DC1-LEAF2A</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.106/24</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet2</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet2</span> <span class="p p-Indicator">]</span>
+        <span class="nt">DC1-LEAF2B</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.107/24</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet3</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet3</span> <span class="p p-Indicator">]</span>
+    <span class="nt">DC1_SVC3</span><span class="p">:</span>
+      <span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">65103</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Tenant_A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">erp1</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+        <span class="nt">DC1-SVC3A</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">4</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.108/24</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet4</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet4</span> <span class="p p-Indicator">]</span>
+        <span class="nt">DC1-SVC3B</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.109/24</span>
+          <span class="nt">spine_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet5</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet5</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<h5 id="l2-leafs-variables">L2 Leafs Variables<a class="headerlink" href="#l2-leafs-variables" title="Permanent link">#</a></h5>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">l2leaf</span><span class="p">:</span>
+
+  <span class="c1"># L2 Leaf default variables, can be overridden when defined under &lt; node_group &gt;.</span>
+  <span class="nt">defaults</span><span class="p">:</span>
+
+    <span class="c1"># Arista platform family. | Required</span>
+    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Arista Platform Family &gt;</span>
+
+    <span class="c1"># Parent L3 switches (list), corresponding to uplink_interfaces and l3leaf_interfaces | Required.</span>
+    <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF2A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-LEAF2B</span><span class="p p-Indicator">]</span>
+
+    <span class="c1"># Uplink interfaces (list), interface located on L2 Leaf,</span>
+    <span class="c1"># corresponding to parent_l3leafs and l3leaf_interfaces | Required.</span>
+    <span class="nt">uplink_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+    <span class="c1"># Point-to-Point interface speed - will apply to L2 Leaf and L3 Leaf switches | Optional.</span>
+    <span class="nt">p2p_link_interface_speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface_speed &gt;</span>
+
+    <span class="c1"># MLAG interfaces (list) | Required when MLAG leafs present in topology.</span>
+    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_3 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_4 &gt;</span><span class="p p-Indicator">]</span>
+
+    <span class="c1"># Spanning tree mode (note - only mstp has been validated at this time) | Required.</span>
+    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mstp &gt;</span>
+
+    <span class="c1"># Spanning tree priority | Required.</span>
+    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
+
+  <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
+  <span class="c1"># and allowed L3 and L2 network services.</span>
+  <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
+  <span class="nt">node_groups</span><span class="p">:</span>
+
+    <span class="c1"># node_group_1, will result in stand-alone leaf.</span>
+    <span class="nt">&lt; node_group_1 &gt;</span><span class="p">:</span>
+
+      <span class="c1"># Filter L3 and L2 network services based on tenant and tags - and filter | Optional</span>
+      <span class="c1"># If filter is not defined will default to all</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Define one or two nodes - same name as inventory_hostname.</span>
+      <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+
+        <span class="c1"># First node</span>
+        <span class="nt">&lt; l2_leaf_inventory_hostname_1 &gt;</span><span class="p">:</span>
+
+          <span class="c1"># Unique identifier | Required.</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+
+          <span class="c1"># Node management IP address | Required.</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+          <span class="c1"># l3leaf interfaces (list), interface located on l3leaf,</span>
+          <span class="c1"># corresponding to parent_l3leafs and uplink_interfaces | Required.</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_6 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_6 &gt;</span> <span class="p p-Indicator">]</span>
+
+    <span class="c1"># node_group_2, will result in MLAG pair.</span>
+    <span class="nt">&lt; node_group_1 &gt;</span><span class="p">:</span>
+      <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC3B</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+
+        <span class="c1"># Second node.</span>
+        <span class="nt">&lt; l2_leaf_inventory_hostname_2 &gt;</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_7 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_7 &gt;</span> <span class="p p-Indicator">]</span>
+
+        <span class="c1"># Third node.</span>
+        <span class="nt">&lt; l2_leaf_inventory_hostname_3 &gt;</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; ethernet_interface_8 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; ethernet_interface_8 &gt;</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Defined in FABRIC.yml</span>
+
+<span class="nt">l2leaf</span><span class="p">:</span>
+  <span class="nt">defaults</span><span class="p">:</span>
+    <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vEOS-LAB</span>
+    <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF2A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-LEAF2B</span><span class="p p-Indicator">]</span>
+    <span class="nt">uplink_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet1</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet2</span> <span class="p p-Indicator">]</span>
+    <span class="nt">mlag_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet3</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet4</span> <span class="p p-Indicator">]</span>
+    <span class="nt">spanning_tree_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mstp</span>
+    <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">16384</span>
+  <span class="nt">node_groups</span><span class="p">:</span>
+    <span class="nt">DC1_L2LEAF4</span><span class="p">:</span>
+      <span class="nt">uplink_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet11</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet12</span> <span class="p p-Indicator">]</span>
+      <span class="nt">filter</span><span class="p">:</span>
+        <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Tenant_A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span><span class="p p-Indicator">,</span> <span class="nv">web</span><span class="p p-Indicator">,</span> <span class="nv">app</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+        <span class="nt">DC1-L2LEAF4A</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">8</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.112/24</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet6</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet6</span> <span class="p p-Indicator">]</span>
+    <span class="nt">DC1_L2LEAF5</span><span class="p">:</span>
+      <span class="nt">parent_l3leafs</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC3B</span> <span class="p p-Indicator">]</span>
+      <span class="nt">nodes</span><span class="p">:</span>
+        <span class="nt">DC1-L2LEAF5A</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.113/24</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet5</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet5</span> <span class="p p-Indicator">]</span>
+        <span class="nt">DC1-L2LEAF5B</span><span class="p">:</span>
+          <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">11</span>
+          <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">192.168.2.114/24</span>
+          <span class="nt">l3leaf_interfaces</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet6</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet6</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<h4 id="network-services-variables-vrfsvlans">Network Services Variables - VRFs/VLANs<a class="headerlink" href="#network-services-variables-vrfsvlans" title="Permanent link">#</a></h4>
+<ul>
+<li>The network services variables provide an abstracted model to create L2 and L3 network services across the fabric.</li>
+<li>The network services are grouped by tenants. The definition of a tenant may vary between organizations.</li>
+<li>e.g. Tenants can be organizations or departments.</li>
+<li>The tenant shares a common vni range for mac vrf assignment.</li>
+<li>The filtering model allows for granular deployment of network service to the fabric leveraging the tenant name and tags applied to the service definition.</li>
+<li>This allows for the re-use of SVIs and VLANs across the fabric.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On mlag leafs, an SVI interface is defined per vrf, to establish iBGP peering. | Required (when mlag leafs in topology)</span>
+<span class="c1"># The SVI id will be derived from the base vlan defined: mlag_ibgp_peering_vrfs.base_vlan + vrf_vni</span>
+<span class="nt">mlag_ibgp_peering_vrfs</span><span class="p">:</span>
+  <span class="nt">base_vlan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-4000 | default -&gt; 3000 &gt;</span>
+
+<span class="c1"># Dictionary of tenants, to define network services: L3 VRFs and L2 VLNAS.</span>
+
+<span class="nt">tenants</span><span class="p">:</span>
+
+  <span class="c1"># Specify a tenant name. | Required</span>
+  <span class="c1"># Tenant provide a construct to group L3 VRFs and L2 VLANs.</span>
+  <span class="c1"># Networks services can be filtered by tenant name.</span>
+  <span class="nt">&lt; tenant_a &gt;</span><span class="p">:</span>
+
+    <span class="c1"># VXLAN Network Identifier for MAC VRF | Required.</span>
+    <span class="c1"># VXLAN VNI is derived from the base number with simple addition.</span>
+    <span class="c1"># e.g. mac_vrf_vni_base = 10000, svi 100 = VNI 10100, svi 300 = VNI 10300.</span>
+    <span class="nt">mac_vrf_vni_base</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 10000-16770000 &gt;</span>
+
+    <span class="c1"># Define L3 network services organized by vrf.</span>
+    <span class="nt">vrfs</span><span class="p">:</span>
+      <span class="c1"># VRF name | Required</span>
+      <span class="nt">&lt; tenant_a_vrf_1 &gt;</span><span class="p">:</span>
+
+        <span class="c1"># VRF VNI | Required.</span>
+        <span class="c1"># The VRF VNI range is limited.</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;1-1024&gt;</span>
+
+        <span class="c1"># Enable VTEP Network diagnostics | Optional.</span>
+        <span class="c1"># This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.</span>
+        <span class="nt">vtep_diagnostic</span><span class="p">:</span>
+
+          <span class="c1"># Loopback interface number | Required (when vtep_diagnotics defined)</span>
+          <span class="nt">loopback</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 2-2100 &gt;</span>
+
+          <span class="c1"># Loopback ip range, a unique ip is derived from this ranged and assigned</span>
+          <span class="c1"># to each l3 leaf based on it&#39;s unique id. | Required (when vtep_diagnotics defined)</span>
+          <span class="nt">loopback_ip_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+        <span class="c1"># Dictionary of SVIs | Required.</span>
+        <span class="c1"># This will create both the L3 SVI and L2 VLAN based on filters applied to l3leaf and l2leaf.</span>
+        <span class="nt">svis</span><span class="p">:</span>
+
+          <span class="c1"># SVI interface id and VLAN id. | Required</span>
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+
+            <span class="c1"># By default the vni will be derived from &quot;mac_vrf_vni_base:&quot;</span>
+            <span class="c1"># The vni_override allows us to override this value and statically define it. | Optional</span>
+            <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-16777215 &gt;</span>
+
+            <span class="c1"># vlan name + svi description. | Required</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+
+            <span class="c1"># Tags leveraged for networks services filtering. | Required</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+            <span class="c1"># Enable or disable interface</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
+            <span class="c1"># ip address virtual to configure VXLAN Anycast IP address</span>
+            <span class="c1"># Conserves IP addresses in VXLAN deployments as it doesn&#39;t require unique IP addresses on each node.</span>
+            <span class="c1"># Optional</span>
+            <span class="l l-Scalar l-Scalar-Plain">ip_address_virtual:</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># ip virtual-router address</span>
+            <span class="c1"># note, also requires an IP address to be configured on the SVI where it is applied.</span>
+            <span class="c1"># Optional</span>
+            <span class="nt">ip_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># Define node specific configuration, such as unique IP addresses.</span>
+            <span class="nt">nodes</span><span class="p">:</span>
+              <span class="nt">&lt; l3_leaf_inventory_hostname_1 &gt;</span><span class="p">:</span>
+                <span class="c1"># device unique IP address for node.</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+              <span class="nt">&lt; l3_leaf_inventory_hostname_2 &gt;</span><span class="p">:</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+      <span class="nt">&lt; tenant_a_vrf_2 &gt;</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;1-1024&gt;</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+   <span class="c1"># Define L2 network services organized by vlan id.</span>
+    <span class="nt">l2vlans</span><span class="p">:</span>
+
+      <span class="c1"># VLAN id.</span>
+      <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+        <span class="c1"># By default the vni will be derived from &quot;mac_vrf_vni_base:&quot;</span>
+        <span class="c1"># The vni_override, allows to override this value and statically define it.</span>
+        <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-16777215 &gt;</span>
+
+        <span class="c1"># VLAN name.</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+
+        <span class="c1"># Tags leveraged for networks services filtering.</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+      <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+
+
+  <span class="nt">&lt; tenant_a &gt;</span><span class="p">:</span>
+    <span class="nt">mac_vrf_vni_base</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 10000-16770000 &gt;</span>
+    <span class="nt">vrfs</span><span class="p">:</span>
+      <span class="nt">&lt; tenant_b_vrf_1 &gt;</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;1-1024&gt;</span>
+        <span class="nt">vtep_diagnostic</span><span class="p">:</span>
+          <span class="nt">loopback</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 2-2100 &gt;</span>
+          <span class="nt">loopback_ip_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+          <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+            <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-16777215 &gt;</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">l2vlans</span><span class="p">:</span>
+      <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+        <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-16777215 &gt;</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+      <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt;</span> <span class="p p-Indicator">]</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># mlag_ibgp_peering_vrfs:</span>
+<span class="c1">#   base_vlan: 3000</span>
+
+<span class="nt">tenants</span><span class="p">:</span>
+  <span class="nt">Tenant_A</span><span class="p">:</span>
+    <span class="nt">mac_vrf_vni_base</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10000</span>
+    <span class="nt">vrfs</span><span class="p">:</span>
+      <span class="nt">Tenant_A_OP_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
+        <span class="nt">vtep_diagnostic</span><span class="p">:</span>
+          <span class="nt">loopback</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">100</span>
+          <span class="nt">loopback_ip_range</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.255.1.0/24</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">110</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.10.0/24</span>
+          <span class="nt">111</span><span class="p">:</span>
+            <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50111</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_2</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.11.0/24</span>
+          <span class="nt">112</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_3</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1_LEAF2</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.12.1/24</span>
+            <span class="nt">nodes</span><span class="p">:</span>
+              <span class="nt">DC1-LEAF2A</span><span class="p">:</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.12.2/24</span>
+              <span class="nt">DC1-LEAF2B</span><span class="p">:</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.12.3/24</span>
+          <span class="nt">113</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_WAN</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1_BL1</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">nodes</span><span class="p">:</span>
+              <span class="nt">DC1-BL1A</span><span class="p">:</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.13.1/24</span>
+              <span class="nt">DC1-BL1B</span><span class="p">:</span>
+                <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.13.2/24</span>
+      <span class="nt">Tenant_A_WEB_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">11</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">120</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_WEB_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">web</span><span class="p p-Indicator">,</span> <span class="nv">erp1</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.20.0/24</span>
+          <span class="nt">121</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_WEBZone_2</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">web</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.21.0/24</span>
+      <span class="nt">Tenant_A_APP_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">12</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">130</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_APP_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">app</span><span class="p p-Indicator">,</span> <span class="nv">erp1</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.30.0/24</span>
+          <span class="nt">131</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_APP_Zone_2</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">app</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.31.0/24</span>
+      <span class="nt">Tenant_A_DB_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">13</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">140</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_DB_BZone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">db</span><span class="p p-Indicator">,</span> <span class="nv">erp1</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.40.0/24</span>
+          <span class="nt">141</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_DB_Zone_2</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">db</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.41.0/24</span>
+      <span class="nt">Tenant_A_WAN_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">14</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">150</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_WAN_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">wan</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.40.0/24</span>
+    <span class="nt">l2vlans</span><span class="p">:</span>
+      <span class="nt">160</span><span class="p">:</span>
+        <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">55160</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_VMOTION</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">vmotion</span> <span class="p p-Indicator">]</span>
+      <span class="nt">161</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_NFS</span>
+        <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">nfs</span><span class="p p-Indicator">]</span>
+
+  <span class="nt">Tenant_B</span><span class="p">:</span>
+    <span class="nt">mac_vrf_vni_base</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20000</span>
+    <span class="nt">vrfs</span><span class="p">:</span>
+      <span class="nt">Tenant_B_OP_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">210</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_B_OP_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.2.10.0/24</span>
+          <span class="nt">211</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_B_OP_Zone_2</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.2.11.0/24</span>
+      <span class="nt">Tenant_B_WAN_Zone</span><span class="p">:</span>
+        <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">21</span>
+        <span class="nt">svis</span><span class="p">:</span>
+          <span class="nt">250</span><span class="p">:</span>
+            <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_B_WAN_Zone_1</span>
+            <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">wan</span> <span class="p p-Indicator">]</span>
+            <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.2.50.0/24</span>
+</code></pre></div>
+
+<h4 id="server-edge-port-connectivity">Server Edge Port Connectivity<a class="headerlink" href="#server-edge-port-connectivity" title="Permanent link">#</a></h4>
+<ul>
+<li>The Server Edge Port Connectivity variables, define infrastructure elements that connect to the fabric on switched interface(s).</li>
+<li>The infrastructure elements are not limited to servers, but any device that connect to a L2 switch port, i.e.: firewalls, load balancers and storage.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Dictionary of port_profiles to be applied to elements defined in the servers variables.</span>
+<span class="nt">port_profiles</span><span class="p">:</span>
+
+  <span class="c1"># Port-profile name</span>
+  <span class="nt">&lt; port_profile_1 &gt;</span><span class="p">:</span>
+
+    <span class="c1"># Interface mode | required</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; access | dot1q-tunnel | trunk &gt;</span>
+
+    <span class="c1"># Native VLAN for a trunk port | optional</span>
+    <span class="nt">native_vlan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;native vlan number&gt;</span>
+
+    <span class="c1"># Interface vlans | required</span>
+    <span class="nt">vlans</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlans as string &gt;</span>
+
+    <span class="c1"># Spanning Tree</span>
+    <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; edge | network &gt;</span>
+    <span class="nt">spanning_tree_bpdufilter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
+    <span class="c1"># Flow control | Optional</span>
+    <span class="nt">flowcontrol</span><span class="p">:</span>
+      <span class="nt">received</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; received | send | on &gt;</span>
+
+  <span class="nt">&lt; port_profile_2 &gt;</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; access | dot1q-tunnel | trunk &gt;</span>
+    <span class="nt">vlans</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlans as string &gt;</span>
+
+<span class="c1"># Dictionary of servers, a device attaching to a L2 switched port(s)</span>
+<span class="nt">servers</span><span class="p">:</span>
+
+  <span class="c1"># Server name, this will be used in the switchport description</span>
+  <span class="nt">&lt; server_1 &gt;</span><span class="p">:</span>
+
+    <span class="c1"># rack is used for documentation purposes only</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; rack_id &gt;</span>
+
+    <span class="c1"># A list of adapter(s), group by adapters leveraging the same port-profile.</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="c1"># Example of stand-alone adapter</span>
+
+        <span class="c1"># Adapter speed - if not specified will be auto.</span>
+      <span class="p p-Indicator">-</span> <span class="nt">speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; adapter speed &gt;</span>
+
+        <span class="c1"># Local server port(s)</span>
+        <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; interface_name &gt;</span> <span class="p p-Indicator">]</span>
+
+        <span class="c1"># List of port(s) connected to switches</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; switchport_interface &gt;</span> <span class="p p-Indicator">]</span>
+
+        <span class="c1"># List of switche(s)</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; device &gt;</span> <span class="p p-Indicator">]</span>
+
+        <span class="c1"># Port-profile name, to inherit configuration.</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_profile_name &gt;</span>
+
+      <span class="c1"># Example of port-channel adpater</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; interface_name_1 &gt;</span> <span class="p p-Indicator">,</span> <span class="nv">&lt; interface_name_2 &gt;</span>  <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; switchport_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; switchport_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; device_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; device_2 &gt;</span>  <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_profile_name &gt;</span>
+
+        <span class="c1"># Port- Channel</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+
+          <span class="c1"># State, create or remove port-channel.</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; present | absent &gt;</span>
+
+          <span class="c1"># Port-Channel Description.</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_channel_description &gt;</span>
+
+          <span class="c1"># Port-Channel Mode.</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; active | passive | on &gt;</span>
+
+  <span class="nt">&lt; server_2 &gt;</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackC</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">speed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; adapter speed &gt;</span>
+        <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; interface_name &gt;</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; switchport_interface &gt;</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; device &gt;</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_profile_name &gt;</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; interface_name_1 &gt;</span> <span class="p p-Indicator">,</span> <span class="nv">&lt; interface_name_2 &gt;</span>  <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; switchport_interface_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; switchport_interface_2 &gt;</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; device_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; device_2 &gt;</span>  <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_profile_name &gt;</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; present | absent &gt;</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_channel_description &gt;</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; active | passive | on &gt;</span>
+          <span class="nt">short_esi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0000:0000:0000 &gt;</span>
+</code></pre></div>
+
+<p><code>short_esi</code> is an abreviated 3 octets value to encode <a href="https://tools.ietf.org/html/rfc7432#section-8.3.1">Ethernet Segment ID</a> and LACP ID. Transformation from abstraction to network values is managed by a <a href="../../plugins/filter/esi_management.py">filter_plugin</a> and provides following result:</p>
+<ul>
+<li><em>EVPN ESI</em>: 000:000:0303:0202:0101</li>
+<li><em>LACP ID</em>: 0303.0202.0101</li>
+<li><em>Route Target</em>: 03:03:02:02:01:01</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">port_profiles</span><span class="p">:</span>
+
+  <span class="nt">VM_Servers</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trunk</span>
+    <span class="nt">vlans</span><span class="p">:</span> <span class="s">&quot;110-111,120-121,130-131&quot;</span>
+    <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">edge</span>
+
+  <span class="nt">MGMT</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">access</span>
+    <span class="nt">vlans</span><span class="p">:</span> <span class="s">&quot;110&quot;</span>
+
+  <span class="nt">DB_Clusters</span><span class="p">:</span>
+    <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">trunk</span>
+    <span class="nt">vlans</span><span class="p">:</span> <span class="s">&quot;140-141&quot;</span>
+
+
+<span class="nt">servers</span><span class="p">:</span>
+
+  <span class="nt">server01</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackB</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="c1"># Single homed interface from E0 toward DC1-LEAF1A_Eth5</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet5</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF1A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MGMT</span>
+
+      <span class="c1"># MLAG dual-homed connection from E1 to DC1-LEAF2A_Eth10</span>
+      <span class="c1">#                            from E2 to DC1-LEAF2B_Eth10</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E1</span><span class="p p-Indicator">,</span> <span class="nv">E2</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet10</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet10</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF2A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-LEAF2B</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DB_Clusters</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PortChanne1</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
+
+  <span class="nt">server03</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackC</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="c1"># MLAG dual-homed connection from E0 to DC1-SVC3A_Eth10</span>
+      <span class="c1">#                            from E1 to DC1-SVC3B_Eth10</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span><span class="p p-Indicator">,</span> <span class="nv">E1</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet10</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet10</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC3B</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VM_Servers</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PortChanne1</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
+</code></pre></div>
+
+<h5 id="single-attached-server-scenario">Single attached server scenario<a class="headerlink" href="#single-attached-server-scenario" title="Permanent link">#</a></h5>
+<p>Single attached interface from <code>E0</code> toward <code>DC1-LEAF1A</code> interface <code>Eth5</code></p>
+<div class="highlight"><pre><span></span><code><span class="nt">servers</span><span class="p">:</span>
+  <span class="nt">server01</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackB</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet5</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-LEAF1A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">MGMT</span>
+</code></pre></div>
+
+<h5 id="mlag-dual-attached-server-scenario">MLAG dual-attached server scenario<a class="headerlink" href="#mlag-dual-attached-server-scenario" title="Permanent link">#</a></h5>
+<p>MLAG dual-homed connection:</p>
+<ul>
+<li>From <code>E0</code> to <code>DC1-SVC3A</code> interface <code>Eth10</code></li>
+<li>From <code>E1</code> to <code>DC1-SVC3B</code> interface <code>Eth10</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">servers</span><span class="p">:</span>
+  <span class="nt">server01</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackB</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span><span class="p p-Indicator">,</span> <span class="nv">E1</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet10</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet10</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC3B</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VM_Servers</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PortChanne1</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
+</code></pre></div>
+
+<h5 id="evpn-aa-esi-dual-attached-server-scenario">EVPN A/A ESI dual-attached server scenario<a class="headerlink" href="#evpn-aa-esi-dual-attached-server-scenario" title="Permanent link">#</a></h5>
+<p>MLAG dual-homed connection:</p>
+<ul>
+<li>From <code>E0</code> to <code>DC1-SVC3A</code> interface <code>Eth10</code></li>
+<li>From <code>E1</code> to <code>DC1-SVC4A</code> interface <code>Eth10</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nt">servers</span><span class="p">:</span>
+  <span class="nt">server01</span><span class="p">:</span>
+    <span class="nt">rack</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">RackB</span>
+    <span class="nt">adapters</span><span class="p">:</span>
+
+      <span class="p p-Indicator">-</span> <span class="nt">server_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">E0</span><span class="p p-Indicator">,</span> <span class="nv">E1</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switch_ports</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">Ethernet10</span><span class="p p-Indicator">,</span> <span class="nv">Ethernet10</span> <span class="p p-Indicator">]</span>
+        <span class="nt">switches</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">DC1-SVC3A</span><span class="p p-Indicator">,</span> <span class="nv">DC1-SVC4A</span> <span class="p p-Indicator">]</span>
+        <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">VM_Servers</span>
+        <span class="nt">port_channel</span><span class="p">:</span>
+          <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+          <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PortChanne1</span>
+          <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">active</span>
+          <span class="nt">short_esi</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0303:0202:0101</span>
+</code></pre></div>
+
+<p><code>short_esi</code> is an abreviated 3 octets value to encode <a href="https://tools.ietf.org/html/rfc7432#section-8.3.1">Ethernet Segment ID</a> and LACP ID. Transformation from abstraction to network values is managed by a <a href="../../plugins/filter/esi_management.py">filter_plugin</a> and provides following result:</p>
+<ul>
+<li><em>EVPN ESI</em>: 000:000:0303:0202:0101</li>
+<li><em>LACP ID</em>: 0303.0202.0101</li>
+<li><em>Route Target</em>: 03:03:02:02:01:01</li>
+</ul>
+<h4 id="variable-to-attach-additional-configlets">Variable to attach additional configlets<a class="headerlink" href="#variable-to-attach-additional-configlets" title="Permanent link">#</a></h4>
+<p>Role <a href="../eos_config_deploy_cvp/#add-additional-configlets"><code>eos_config_deploy_cvp</code></a> provides an option to attach additional configlets to both devices or containers.</p>
+<p>This function allows users to quickly deployed a new feature with no JINJA2 implementation. These configlets <strong>must</strong> be managed on Cloudvision as current role does not upload additional containers.</p>
+<p>To attach configlets to containers or devices, please refer to <a href="../eos_config_deploy_cvp/#add-additional-configlets"><strong><code>eos_config_deploy_cvp</code> documentation</strong></a></p>
+<p>Below is an example provided as-is:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># group_vars/DC1_FABRIC.yml</span>
+
+<span class="c1"># List of additional CVP configlets to bind to devices and containers</span>
+<span class="c1"># Configlets MUST be configured on CVP before running AVD playbooks.</span>
+<span class="nt">cv_configlets</span><span class="p">:</span>
+  <span class="nt">containers</span><span class="p">:</span>
+    <span class="nt">DC1_L3LEAFS</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GLOBAL-ALIASES</span>
+  <span class="nt">devices</span><span class="p">:</span>
+    <span class="nt">DC1-L2LEAF2A</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GLOBAL-ALIASES</span>
+    <span class="nt">DC1-L2LEAF2B</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">GLOBAL-ALIASES</span>
+</code></pre></div>
+
+<h4 id="event-handlers">Event Handlers<a class="headerlink" href="#event-handlers" title="Permanent link">#</a></h4>
+<p>Gives ability to monitor and react to Syslog messages provides a powerful and flexible tool that can be used to apply self-healing actions, customize the system behavior, and implement workarounds to problems discovered in the field.</p>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">event_handlers</span><span class="p">:</span>
+  <span class="nt">evpn-blacklist-recovery</span><span class="p">:</span>    <span class="c1"># Name of the event-handler</span>
+    <span class="nt">action_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; bash, increment &gt;</span>
+    <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Command to run when handler is triggered &gt;</span>
+    <span class="nt">delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; int / delay in sec between 2 triggers &gt;</span>
+    <span class="nt">trigger</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; on-logging &gt;</span>
+    <span class="nt">regex</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">&lt; string to trigger handler &gt;</span>
+    <span class="nt">asynchronous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true, false &gt;</span>
+</code></pre></div>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">event_handlers</span><span class="p">:</span>
+  <span class="nt">evpn-blacklist-recovery</span><span class="p">:</span>
+    <span class="nt">action_type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+    <span class="nt">action</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">FastCli -p 15 -c &quot;clear bgp evpn host-flap&quot;</span>
+    <span class="nt">delay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">300</span>
+    <span class="nt">trigger</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">on-logging</span>
+    <span class="nt">regex</span><span class="p">:</span>  <span class="l l-Scalar l-Scalar-Plain">EVPN-3-BLACKLISTED_DUPLICATE_MAC</span>
+    <span class="nt">asynchronous</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+</code></pre></div>
+
+<h4 id="platform-specific-settings">Platform Specific settings<a class="headerlink" href="#platform-specific-settings" title="Permanent link">#</a></h4>
+<ul>
+<li>Set platform specific settings, TCAM profile and reload delay.</li>
+<li>The reload delay values should be reviewed and tuned to the specific environment.</li>
+<li>If the platform is not defined, it will load parameters from the platform tagged <code>default</code>.</li>
+</ul>
+<p><strong>Variables and Options:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nt">platform_settings</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">platforms</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">default</span> <span class="p p-Indicator">]</span>
+    <span class="nt">reload_delay</span><span class="p">:</span>
+      <span class="nt">mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds &gt;</span>
+      <span class="nt">non_mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">platforms</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; Arista Platform Family &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; Arista Platform Family &gt;</span> <span class="p p-Indicator">]</span>
+    <span class="nt">tcam_profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; tcam_profile &gt;</span>
+    <span class="nt">reload_delay</span><span class="p">:</span>
+      <span class="nt">mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds &gt;</span>
+      <span class="nt">non_mlag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; seconds &gt;</span>
+</code></pre></div>
+
+<p>note: Recommended default values for Jericho based platform, and all other platforms <code>default</code> tag.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># platform_settings:</span>
+<span class="c1">#   - platforms: [ default ]</span>
+<span class="c1">#     reload_delay:</span>
+<span class="c1">#       mlag: 300</span>
+<span class="c1">#       non_mlag: 330</span>
+<span class="c1">#   - platforms: [ 7800R3, 7500R3, 7500R, 7280R3, 7280R2, 7280R ]</span>
+<span class="c1">#     tcam_profile: vxlan-routing</span>
+<span class="c1">#     reload_delay:</span>
+<span class="c1">#       mlag: 780</span>
+<span class="c1">#       non_mlag: 1020</span>
+</code></pre></div>
+
+<h4 id="veos-lab-know-caveats-and-recommendations">vEOS-LAB Know Caveats and Recommendations<a class="headerlink" href="#veos-lab-know-caveats-and-recommendations" title="Permanent link">#</a></h4>
+<ul>
+<li>vEOS-LAB is a great tool to learn and test ansible-avd automation framework. In fact, this is the primary tool leveraged by Arista Ansible Team, for development and testing efforts.</li>
+<li>vEOS-lab enables you to create and run replicas of physical networks within a risk free virtual environment.</li>
+<li>Virtual networks created with vEOS-lab can be used for network modeling, planning for new services, or validating new features and functionality for the installed network.</li>
+<li>vEOS-lab is not a network simulator but the exact EOS implementation that runs on the hardware platforms.</li>
+<li>Supported features are documented here: <a href="https://www.arista.com/assets/data/pdf/Datasheets/vEOS_Datasheet.pdf">vEOS-LAB Datasheet</a></li>
+</ul>
+<p>However, because vEOS-LAB implements a virtual data plane there are known caveats and adjustments that are required to default arista.avd settings:</p>
+<p><strong>Variables adjustments required for vEOS-LAB:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Disable update wait-for-convergence and update wait-for-install, which is not supported in vEOS-LAB.</span>
+<span class="nt">spine_bgp_defaults</span><span class="p">:</span>
+<span class="c1">#  - update wait-for-convergence</span>
+<span class="c1">#  - update wait-install</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no bgp default ipv4-unicast</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">distance bgp 20 200 200</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart restart-time 300</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart</span>
+
+<span class="nt">leaf_bgp_defaults</span><span class="p">:</span>
+<span class="c1">#  - update wait-install</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">no bgp default ipv4-unicast</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">distance bgp 20 200 200</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart restart-time 300</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">graceful-restart</span>
+
+<span class="c1"># Update p2p mtu 9000 -&gt; 1500, MTU 9000 not supported in vEOS-LAB.</span>
+<span class="nt">p2p_uplinks_mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1500</span>
+
+<span class="c1"># Adjust default bfd values, to avoid high CPU.</span>
+<span class="nt">bfd_multihop</span><span class="p">:</span>
+  <span class="nt">interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1200</span>
+  <span class="nt">min_rx</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1200</span>
+  <span class="nt">multiplier</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
+<p>Project is published under <a href="../../LICENSE">Apache 2.0 License</a></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../docs/how-to/lab-with-nat/" title="Use NAT to access eAPI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Use NAT to access eAPI
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../eos_cli_config_gen/" title="eos_cli_config_gen" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                eos_cli_config_gen
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Arista Networks
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ["instant"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
