@@ -387,8 +387,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../../docs/how-to/first-cvp-avd-project/" title="Build your first AVD & CVP project" class="md-nav__link">
+      Build your first AVD & CVP project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../docs/how-to/lab-with-nat/" title="Use NAT to access eAPI" class="md-nav__link">
       Use NAT to access eAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../docs/how-to/tower-integration/" title="AWX & Tower Integration" class="md-nav__link">
+      AWX & Tower Integration
     </a>
   </li>
 
@@ -511,6 +535,53 @@
   <a href="#role-inputs-and-outputs" class="md-nav__link">
     Role Inputs and Outputs
   </a>
+  
+    <nav class="md-nav" aria-label="Role Inputs and Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inventory-configuration" class="md-nav__link">
+    Inventory configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-variables" class="md-nav__link">
+    Module variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    Tasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -853,6 +924,53 @@
     Role Inputs and Outputs
   </a>
   
+    <nav class="md-nav" aria-label="Role Inputs and Outputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+    <nav class="md-nav" aria-label="Inputs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inventory-configuration" class="md-nav__link">
+    Inventory configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#module-variables" class="md-nav__link">
+    Module variables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    Tasks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -902,7 +1020,16 @@
 <li><a href="#ansible-role-cvp_configlet_upload">Ansible Role: cvp_configlet_upload</a><ul>
 <li><a href="#overview">Overview</a></li>
 <li><a href="#role-requirements">Role requirements</a></li>
-<li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a></li>
+<li><a href="#role-inputs-and-outputs">Role Inputs and Outputs</a><ul>
+<li><a href="#inputs">Inputs</a><ul>
+<li><a href="#inventory-configuration">Inventory configuration</a></li>
+<li><a href="#module-variables">Module variables</a></li>
+<li><a href="#outputs">Outputs</a></li>
+</ul>
+</li>
+<li><a href="#tasks">Tasks</a></li>
+</ul>
+</li>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#license">License</a></li>
 </ul>
@@ -922,8 +1049,8 @@
 <li>Collect Cloudvision facts.</li>
 <li>Create or update configlets on Cloudvision server with content from <code>{{configlet_directory}}</code></li>
 </ol>
-<p><strong>Inputs:</strong></p>
-<p><strong>Inventory configuration:</strong></p>
+<h4 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">#</a></h4>
+<h5 id="inventory-configuration">Inventory configuration<a class="headerlink" href="#inventory-configuration" title="Permanent link">#</a></h5>
 <p>An entry must be part of the inventory to describe CloudVision server. <code>arista.cvp</code> modules use httpapi approach. Example below provides framework to use in your inventory.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">all</span><span class="p">:</span>
   <span class="nt">children</span><span class="p">:</span>
@@ -942,7 +1069,8 @@
           <span class="c1"># Configuration to get Virtual Env information</span>
           <span class="nt">ansible_python_interpreter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">$(which python3)</span>
 </code></pre></div>
-<p><strong>Module variables:</strong></p>
+<p>For complete list of authentication options available with Cloudvision Ansible collection, you can read dedicated page on <a href="https://cvp.avd.sh/docs/how-to/cvp-authentication/">arista.cvp collection</a>.</p>
+<h5 id="module-variables">Module variables<a class="headerlink" href="#module-variables" title="Permanent link">#</a></h5>
 <ul>
 <li><strong><code>configlet_directory</code></strong>: Folder where local configlets are stored. Default: <code>configlets</code>.</li>
 <li><strong><code>file_extension</code></strong>: File extension to look for configlet in their local folder. Default: <code>conf</code>.</li>
@@ -965,11 +1093,11 @@
 </ul>
 <div class="highlight"><pre><span></span><code>$ ansible-playbook playbook.to.deploy.with.cvp.yml --tags <span class="s2">&quot;provision&quot;</span>
 </code></pre></div>
-<p><strong>Outputs:</strong></p>
+<h5 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">#</a></h5>
 <ul>
 <li>None.</li>
 </ul>
-<p><strong>Tasks:</strong></p>
+<h4 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">#</a></h4>
 <ol>
 <li>Read content of <code>{{configlet_directory}}</code> and create <strong>cv_configlet</strong> input structure.</li>
 <li>Collect Cloudvision facts.</li>
