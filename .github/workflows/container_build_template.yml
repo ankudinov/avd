@@ -171,6 +171,8 @@ jobs:
           lsmod
           sudo modprobe ip_tables
           sudo modprobe ip6_tables
+          lsmod
+          sudo cat /proc/sys/fs/binfmt_misc/qemu-aarch64
 
       - name: Pre-build dev container image 🔨
         # if: ${{ steps.check-image-presence.outputs.not_present == '1' }}
