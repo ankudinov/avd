@@ -153,7 +153,7 @@ jobs:
         uses: docker/setup-qemu-action@v3
         with:
           platforms: ${{ inputs.platform }}
-          image: tonistiigi/binfmt:qemu-v9.2.0-46
+          image: tonistiigi/binfmt:qemu-v8.1.5-45
 
       - name: Setup Docker buildX for multi-arch builds 🏗️
         # if: ${{ steps.check-image-presence.outputs.not_present == '1' }}
@@ -167,13 +167,13 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: enable ip_tables
-        run: |
-          lsmod
-          sudo modprobe ip_tables
-          sudo modprobe ip6_tables
-          lsmod
-          sudo cat /proc/sys/fs/binfmt_misc/qemu-aarch64
+      # - name: enable ip_tables
+      #   run: |
+      #     lsmod
+      #     sudo modprobe ip_tables
+      #     sudo modprobe ip6_tables
+      #     lsmod
+      #     sudo cat /proc/sys/fs/binfmt_misc/qemu-aarch64
 
       - name: Pre-build dev container image 🔨
         # if: ${{ steps.check-image-presence.outputs.not_present == '1' }}
