@@ -114,7 +114,7 @@ jobs:
               echo "from_image=${{ inputs.from_image }}" >> $GITHUB_OUTPUT
               echo "from_variant=${{ inputs.python_version }}-slim-bullseye" >> $GITHUB_OUTPUT
             else
-              echo "from_image=ghcr.io/${{ github.repository }}/base" >> $GITHUB_OUTPUT
+              echo "from_image=ghcr.io/avd/base" >> $GITHUB_OUTPUT
               echo "from_variant=python${{ inputs.python_version }}" >> $GITHUB_OUTPUT
             fi
           else
