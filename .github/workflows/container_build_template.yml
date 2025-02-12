@@ -166,6 +166,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: enable ip_tables
+        run: |
+          lsmod
+          modprobe ip_tables
+          modprobe ip6_tables
+
       - name: Pre-build dev container image 🔨
         # if: ${{ steps.check-image-presence.outputs.not_present == '1' }}
         uses: devcontainers/ci@v0.3
