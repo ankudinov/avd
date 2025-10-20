@@ -41,7 +41,7 @@ SCHEMAS = {
 
 schema_store = create_store(force_rebuild=True)
 
-typedoc_dir = "/workspaces/avd/typedoc/src"
+typedoc_dir = "typedoc/src"
 if not os.path.exists(typedoc_dir):
     os.mkdir(typedoc_dir)
 
