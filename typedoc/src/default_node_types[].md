@@ -1,9 +1,9 @@
 ---
-title: default_node_types[]
+title: default_node_types
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`default_node_types[]` | list | None
+`default_node_types` | list | None

@@ -53,12 +53,12 @@ for schema_name, schema_paths in SCHEMAS.items():
 
     schema = AristaAvdSchema(**schema_store[schema_name])
     schema_dict=schema.keys
-    for k, v in schema.keys.items():
+    for key_name, v in schema.keys.items():
 
         if v.type == 'list':
-            key_name = k + '[]'
+            doc_file = key_name + '[]'
         else:
-            key_name = k
+            doc_file = key_name
 
         top_doc_list.append(f"src/{key_name}.md")
 
@@ -81,7 +81,7 @@ for schema_name, schema_paths in SCHEMAS.items():
         for a_line in md_doc_list:
             md_doc_string += a_line + os.linesep
 
-        with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
+        with open(f'{typedoc_dir}/{doc_file}.md', 'w') as f:
             f.write(md_doc_string)
         
 typedoc_config = {

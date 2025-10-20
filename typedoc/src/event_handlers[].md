@@ -1,9 +1,9 @@
 ---
-title: event_handlers[]
+title: event_handlers
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`event_handlers[]` | list | None
+`event_handlers` | list | None

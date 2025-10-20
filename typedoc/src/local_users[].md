@@ -1,9 +1,9 @@
 ---
-title: local_users[]
+title: local_users
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`local_users[]` | list | None
+`local_users` | list | None

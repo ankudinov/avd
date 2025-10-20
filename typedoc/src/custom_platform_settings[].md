@@ -1,9 +1,9 @@
 ---
-title: custom_platform_settings[]
+title: custom_platform_settings
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`custom_platform_settings[]` | list | None
+`custom_platform_settings` | list | None

@@ -1,9 +1,9 @@
 ---
-title: cv_topology[]
+title: cv_topology
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`cv_topology[]` | list | None
+`cv_topology` | list | None

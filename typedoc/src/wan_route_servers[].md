@@ -1,9 +1,9 @@
 ---
-title: wan_route_servers[]
+title: wan_route_servers
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`wan_route_servers[]` | list | None
+`wan_route_servers` | list | None

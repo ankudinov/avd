@@ -1,9 +1,9 @@
 ---
-title: svi_profiles[]
+title: svi_profiles
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`svi_profiles[]` | list | None
+`svi_profiles` | list | None

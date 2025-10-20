@@ -1,9 +1,9 @@
 ---
-title: ptp_profiles[]
+title: ptp_profiles
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`ptp_profiles[]` | list | None
+`ptp_profiles` | list | None

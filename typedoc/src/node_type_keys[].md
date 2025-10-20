@@ -1,9 +1,9 @@
 ---
-title: node_type_keys[]
+title: node_type_keys
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`node_type_keys[]` | list | None
+`node_type_keys` | list | None

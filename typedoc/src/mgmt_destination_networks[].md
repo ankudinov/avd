@@ -1,9 +1,9 @@
 ---
-title: mgmt_destination_networks[]
+title: mgmt_destination_networks
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`mgmt_destination_networks[]` | list | None
+`mgmt_destination_networks` | list | None

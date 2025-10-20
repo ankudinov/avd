@@ -1,9 +1,9 @@
 ---
-title: cv_pathfinder_regions[]
+title: cv_pathfinder_regions
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`cv_pathfinder_regions[]` | list | None
+`cv_pathfinder_regions` | list | None

@@ -1,9 +1,9 @@
 ---
-title: connected_endpoints[]
+title: connected_endpoints
 ---
 
 ## Key
 
 Key Name | Type | Required
 ---------|------|---------
-`connected_endpoints[]` | list | None
+`connected_endpoints` | list | None
