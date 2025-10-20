@@ -6,6 +6,7 @@ on:
     paths:
     - typedoc/src/**
     - .github/workflows/publish-pages.yml
+    - typedoc/typedoc-from-schema.py
   workflow_dispatch:
     branches: [ devel, typedoc-preview ]
 permissions:
