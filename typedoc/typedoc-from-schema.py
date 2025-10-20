@@ -4,6 +4,7 @@ import sys
 sys.path.insert(0,'/workspaces/avd/python-avd')
 
 import os
+import json
 
 from dataclasses import dataclass
 from pathlib import Path
@@ -44,6 +45,8 @@ typedoc_dir = "/workspaces/avd/typedoc/src"
 if not os.path.exists(typedoc_dir):
     os.mkdir(typedoc_dir)
 
+top_doc_list = list()
+
 for schema_name, schema_paths in SCHEMAS.items():
     # if not schema_paths.docs_path:
     #     continue
@@ -51,6 +54,9 @@ for schema_name, schema_paths in SCHEMAS.items():
     schema = AristaAvdSchema(**schema_store[schema_name])
     schema_dict=schema.keys
     for key_name, v in schema.keys.items():
+
+        top_doc_list.append(f"src/{key_name}.md")
+
         try:
             required = v.required
         except:
@@ -72,3 +78,16 @@ for schema_name, schema_paths in SCHEMAS.items():
 
         with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
             f.write(md_doc_string)
+        
+typedoc_config = {
+    "searchInComments": True,
+    "searchInDocuments": True,
+    "$schema": "https://typedoc.org/schema.json",
+    "logLevel": "Verbose",
+    "readme": "src/index.md",
+    "projectDocuments": top_doc_list,
+    "out": "site"
+}
+
+with open("/workspaces/avd/typedoc/typedoc.config.jsonc", "w") as f:
+    json.dump(typedoc_config, f, indent=4)

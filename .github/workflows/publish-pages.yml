@@ -1,0 +1,46 @@
+---
+name: publish typedoc
+on:
+  push:
+    branches: [ devel, typedoc-preview ]
+    paths:
+    - typedoc/src/**
+    - .github/workflows/publish-pages.yml
+  workflow_dispatch:
+    branches: [ devel, typedoc-preview ]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+
+      - name: Checkout code ✅
+        uses: actions/checkout@v4
+
+      - name: Setup Python3 🐍
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: setup Node
+        uses: actions/setup-node@v5
+
+      - name: Build Site
+        run: |
+          npm install --save-dev typedoc
+          npx typedoc --options typedoc/typedoc.config.jsonc
+
+      - name: Setup Pages 📖
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact 🔼
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site/
+
+      - name: Deploy to GitHub Pages 🚀
+        id: deployment
+        uses: actions/deploy-pages@v4
