@@ -53,7 +53,12 @@ for schema_name, schema_paths in SCHEMAS.items():
 
     schema = AristaAvdSchema(**schema_store[schema_name])
     schema_dict=schema.keys
-    for key_name, v in schema.keys.items():
+    for k, v in schema.keys.items():
+
+        if v.type == 'list':
+            key_name = k + '[]'
+        else:
+            key_name = k
 
         top_doc_list.append(f"src/{key_name}.md")
 

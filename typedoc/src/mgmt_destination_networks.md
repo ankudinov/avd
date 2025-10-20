@@ -1,9 +1,0 @@
----
-title: mgmt_destination_networks
----
-
-## Key
-
-Key Name | Type | Required
----------|------|---------
-`mgmt_destination_networks` | list | None
