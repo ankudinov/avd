@@ -83,7 +83,11 @@ for schema_name, schema_paths in SCHEMAS.items():
 
         with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
             f.write(md_doc_string)
-        
+
+# inject index.md temporarily
+with open(f'{typedoc_dir}/index.md', 'w') as f:
+    f.write("# TEST\n\ntest\n")
+
 typedoc_config = {
     "searchInComments": True,
     "searchInDocuments": True,
