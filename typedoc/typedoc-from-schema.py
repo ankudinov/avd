@@ -56,11 +56,11 @@ for schema_name, schema_paths in SCHEMAS.items():
     for key_name, v in schema.keys.items():
 
         if v.type == 'list':
-            key_title = key_name + '[]'
+            key_title = key_name + '[ ]'
         else:
             key_title = key_name
 
-        top_doc_list.append(f"src/{key_title}.md")
+        top_doc_list.append(f"src/{key_name}.md")
 
         try:
             required = v.required
@@ -81,7 +81,7 @@ for schema_name, schema_paths in SCHEMAS.items():
         for a_line in md_doc_list:
             md_doc_string += a_line + os.linesep
 
-        with open(f'{typedoc_dir}/{key_title}.md', 'w') as f:
+        with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
             f.write(md_doc_string)
         
 typedoc_config = {
