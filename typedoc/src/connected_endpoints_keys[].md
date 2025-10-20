@@ -1,5 +1,5 @@
 ---
-title: connected_endpoints_keys
+title: connected_endpoints_keys[]
 ---
 
 ## Key

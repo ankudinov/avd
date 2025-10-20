@@ -1,5 +1,5 @@
 ---
-title: platform_settings
+title: platform_settings[]
 ---
 
 ## Key

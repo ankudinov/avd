@@ -1,5 +1,5 @@
 ---
-title: ipv4_prefix_list_catalog
+title: ipv4_prefix_list_catalog[]
 ---
 
 ## Key

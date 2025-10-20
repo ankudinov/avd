@@ -1,5 +1,5 @@
 ---
-title: custom_node_type_keys
+title: custom_node_type_keys[]
 ---
 
 ## Key

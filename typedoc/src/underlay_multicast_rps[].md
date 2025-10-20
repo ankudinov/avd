@@ -1,5 +1,5 @@
 ---
-title: underlay_multicast_rps
+title: underlay_multicast_rps[]
 ---
 
 ## Key

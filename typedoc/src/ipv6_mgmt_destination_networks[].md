@@ -1,5 +1,5 @@
 ---
-title: ipv6_mgmt_destination_networks
+title: ipv6_mgmt_destination_networks[]
 ---
 
 ## Key

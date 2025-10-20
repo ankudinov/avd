@@ -1,5 +1,5 @@
 ---
-title: platform_speed_groups
+title: platform_speed_groups[]
 ---
 
 ## Key

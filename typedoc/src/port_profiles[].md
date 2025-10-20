@@ -1,5 +1,5 @@
 ---
-title: port_profiles
+title: port_profiles[]
 ---
 
 ## Key

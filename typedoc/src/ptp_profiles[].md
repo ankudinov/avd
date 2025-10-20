@@ -1,5 +1,5 @@
 ---
-title: ptp_profiles
+title: ptp_profiles[]
 ---
 
 ## Key

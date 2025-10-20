@@ -1,5 +1,5 @@
 ---
-title: name_servers
+title: name_servers[]
 ---
 
 ## Key

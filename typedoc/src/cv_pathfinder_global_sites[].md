@@ -1,5 +1,5 @@
 ---
-title: cv_pathfinder_global_sites
+title: cv_pathfinder_global_sites[]
 ---
 
 ## Key

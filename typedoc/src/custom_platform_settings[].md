@@ -1,5 +1,5 @@
 ---
-title: custom_platform_settings
+title: custom_platform_settings[]
 ---
 
 ## Key

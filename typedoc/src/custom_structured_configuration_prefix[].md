@@ -1,5 +1,5 @@
 ---
-title: custom_structured_configuration_prefix
+title: custom_structured_configuration_prefix[]
 ---
 
 ## Key

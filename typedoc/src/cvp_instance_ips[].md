@@ -1,5 +1,5 @@
 ---
-title: cvp_instance_ips
+title: cvp_instance_ips[]
 ---
 
 ## Key
