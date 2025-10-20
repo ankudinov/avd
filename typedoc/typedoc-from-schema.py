@@ -98,5 +98,5 @@ typedoc_config = {
     "out": "site"
 }
 
-with open("/workspaces/avd/typedoc/typedoc.config.jsonc", "w") as f:
+with open("typedoc/typedoc.config.jsonc", "w") as f:
     json.dump(typedoc_config, f, indent=4)
