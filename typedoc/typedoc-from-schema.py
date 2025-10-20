@@ -60,7 +60,7 @@ for schema_name, schema_paths in SCHEMAS.items():
         else:
             key_title = key_name
 
-        top_doc_list.append(f"src/{key_name}.md")
+        top_doc_list.append(f"src/{key_title}.md")
 
         try:
             required = v.required
