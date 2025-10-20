@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
-sys.path.insert(0,'/workspaces/avd/python-avd')
+sys.path.insert(0,'./python-avd')
 
 import os
 import json
