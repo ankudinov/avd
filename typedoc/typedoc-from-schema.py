@@ -67,6 +67,11 @@ for schema_name, schema_paths in SCHEMAS.items():
         except:
             required = False
         md_doc_list = [
+            f"/**",
+            f" * @groupDescription Events",
+            f" * Events are for...",
+            f" * @showGroups",
+            f" */",
             f"---",
             f"title: \"{key_title}\"",
             f"---",
