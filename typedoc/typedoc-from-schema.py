@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+
+import sys
+sys.path.insert(0,'/workspaces/avd/python-avd')
+
+import os
+
+from dataclasses import dataclass
+from pathlib import Path
+from schema_tools.metaschema.meta_schema_model import AristaAvdSchema, AvdSchemaBaseModel
+from schema_tools.store import create_store
+
+REPO_ROOT = Path(__file__).parents[2]
+PYAVD_DIR = REPO_ROOT.joinpath("python-avd/pyavd")
+METASCHEMA_DIR = PYAVD_DIR.joinpath("_schema")
+EOS_DESIGNS_SCHEMA_DIR = PYAVD_DIR.joinpath("_eos_designs/schema")
+
+@dataclass(frozen=True)
+class SchemaPaths:
+    yaml_file: Path
+    pickled_schema: Path
+    fragments_dir: Path | None = None
+    python_class: Path | None = None
+    docs_path: Path | None = None
+
+# Remember to also update PICKLED_SCHEMAS in pyavd/_schema/constants.py
+SCHEMAS = {
+    # "avd_meta_schema": SchemaPaths(
+    #     yaml_file=METASCHEMA_DIR.joinpath("avd_meta_schema.json"),
+    #     pickled_schema=METASCHEMA_DIR.joinpath("avd_meta_schema.pickle"),
+    # ),
+    "eos_designs": SchemaPaths(
+        yaml_file=EOS_DESIGNS_SCHEMA_DIR.joinpath("eos_designs.schema.yml"),
+        pickled_schema=EOS_DESIGNS_SCHEMA_DIR.joinpath("eos_designs.schema.pickle"),
+        fragments_dir=EOS_DESIGNS_SCHEMA_DIR.joinpath("schema_fragments"),
+        python_class=EOS_DESIGNS_SCHEMA_DIR.joinpath("__init__.py"),
+        docs_path=REPO_ROOT.joinpath("ansible_collections/arista/avd/roles/eos_designs/docs"),
+    )
+}
+
+schema_store = create_store(force_rebuild=True)
+
+typedoc_dir = "/workspaces/avd/typedoc/src"
+if not os.path.exists(typedoc_dir):
+    os.mkdir(typedoc_dir)
+
+for schema_name, schema_paths in SCHEMAS.items():
+    # if not schema_paths.docs_path:
+    #     continue
+
+    schema = AristaAvdSchema(**schema_store[schema_name])
+    schema_dict=schema.keys
+    for key_name, v in schema.keys.items():
+        try:
+            required = v.required
+        except:
+            required = False
+        md_doc_list = [
+            f"---",
+            f"title: {key_name}",
+            f"---",
+            f"",
+            f"## Key",
+            f"",
+            f"Key Name | Type | Required",
+            f"---------|------|---------",
+            f"`{key_name}` | {v.type} | {v.required}"
+        ]
+        md_doc_string = ""
+        for a_line in md_doc_list:
+            md_doc_string += a_line + os.linesep
+
+        with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
+            f.write(md_doc_string)
