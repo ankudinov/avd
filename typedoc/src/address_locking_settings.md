@@ -1,5 +1,5 @@
 ---
-title: address_locking_settings
+title: "address_locking_settings"
 ---
 
 ## Key

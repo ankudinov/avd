@@ -1,5 +1,5 @@
 ---
-title: bgp_update_wait_install
+title: "bgp_update_wait_install"
 ---
 
 ## Key

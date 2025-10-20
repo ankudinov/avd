@@ -1,5 +1,5 @@
 ---
-title: event_monitor
+title: "event_monitor"
 ---
 
 ## Key

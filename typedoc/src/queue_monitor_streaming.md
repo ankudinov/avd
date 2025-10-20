@@ -1,5 +1,5 @@
 ---
-title: queue_monitor_streaming
+title: "queue_monitor_streaming"
 ---
 
 ## Key

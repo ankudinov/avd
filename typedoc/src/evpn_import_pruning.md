@@ -1,5 +1,5 @@
 ---
-title: evpn_import_pruning
+title: "evpn_import_pruning"
 ---
 
 ## Key

@@ -1,5 +1,5 @@
 ---
-title: fabric_name
+title: "fabric_name"
 ---
 
 ## Key

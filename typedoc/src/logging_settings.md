@@ -1,5 +1,5 @@
 ---
-title: logging_settings
+title: "logging_settings"
 ---
 
 ## Key

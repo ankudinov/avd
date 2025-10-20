@@ -1,5 +1,5 @@
 ---
-title: avd_data_validation_mode
+title: "avd_data_validation_mode"
 ---
 
 ## Key

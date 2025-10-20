@@ -1,5 +1,5 @@
 ---
-title: generate_cv_tags
+title: "generate_cv_tags"
 ---
 
 ## Key

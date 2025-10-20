@@ -1,5 +1,5 @@
 ---
-title: mgmt_gateway
+title: "mgmt_gateway"
 ---
 
 ## Key

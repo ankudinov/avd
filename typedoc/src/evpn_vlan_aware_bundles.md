@@ -1,5 +1,5 @@
 ---
-title: evpn_vlan_aware_bundles
+title: "evpn_vlan_aware_bundles"
 ---
 
 ## Key

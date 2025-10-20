@@ -1,5 +1,5 @@
 ---
-title: zscaler_endpoints
+title: "zscaler_endpoints"
 ---
 
 ## Key

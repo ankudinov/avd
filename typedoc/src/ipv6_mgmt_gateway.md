@@ -1,5 +1,5 @@
 ---
-title: ipv6_mgmt_gateway
+title: "ipv6_mgmt_gateway"
 ---
 
 ## Key

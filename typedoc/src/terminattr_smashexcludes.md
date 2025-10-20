@@ -1,5 +1,5 @@
 ---
-title: terminattr_smashexcludes
+title: "terminattr_smashexcludes"
 ---
 
 ## Key

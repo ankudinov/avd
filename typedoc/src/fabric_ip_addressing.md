@@ -1,5 +1,5 @@
 ---
-title: fabric_ip_addressing
+title: "fabric_ip_addressing"
 ---
 
 ## Key

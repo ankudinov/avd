@@ -1,5 +1,5 @@
 ---
-title: evpn_hostflap_detection
+title: "evpn_hostflap_detection"
 ---
 
 ## Key

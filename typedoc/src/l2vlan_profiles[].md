@@ -1,5 +1,5 @@
 ---
-title: l2vlan_profiles[]
+title: "l2vlan_profiles[]"
 ---
 
 ## Key

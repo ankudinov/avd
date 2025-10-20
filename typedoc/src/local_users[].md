@@ -1,5 +1,5 @@
 ---
-title: local_users[]
+title: "local_users[]"
 ---
 
 ## Key

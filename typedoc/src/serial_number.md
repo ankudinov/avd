@@ -1,5 +1,5 @@
 ---
-title: serial_number
+title: "serial_number"
 ---
 
 ## Key

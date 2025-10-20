@@ -1,5 +1,5 @@
 ---
-title: avd_eos_designs_debug
+title: "avd_eos_designs_debug"
 ---
 
 ## Key

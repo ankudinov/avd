@@ -1,5 +1,5 @@
 ---
-title: evpn_vlan_bundles[]
+title: "evpn_vlan_bundles[]"
 ---
 
 ## Key

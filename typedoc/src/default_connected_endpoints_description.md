@@ -1,5 +1,5 @@
 ---
-title: default_connected_endpoints_description
+title: "default_connected_endpoints_description"
 ---
 
 ## Key

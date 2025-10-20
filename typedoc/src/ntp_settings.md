@@ -1,5 +1,5 @@
 ---
-title: ntp_settings
+title: "ntp_settings"
 ---
 
 ## Key

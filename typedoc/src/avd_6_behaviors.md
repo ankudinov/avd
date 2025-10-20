@@ -1,5 +1,5 @@
 ---
-title: avd_6_behaviors
+title: "avd_6_behaviors"
 ---
 
 ## Key

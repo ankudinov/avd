@@ -1,5 +1,5 @@
 ---
-title: bgp_graceful_restart
+title: "bgp_graceful_restart"
 ---
 
 ## Key

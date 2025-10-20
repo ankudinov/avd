@@ -1,5 +1,5 @@
 ---
-title: hardware_counters
+title: "hardware_counters"
 ---
 
 ## Key

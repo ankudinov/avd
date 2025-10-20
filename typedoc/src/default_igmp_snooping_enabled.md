@@ -1,5 +1,5 @@
 ---
-title: default_igmp_snooping_enabled
+title: "default_igmp_snooping_enabled"
 ---
 
 ## Key

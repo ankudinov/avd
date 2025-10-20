@@ -1,5 +1,5 @@
 ---
-title: snmp_settings
+title: "snmp_settings"
 ---
 
 ## Key

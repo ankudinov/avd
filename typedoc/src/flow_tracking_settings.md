@@ -1,5 +1,5 @@
 ---
-title: flow_tracking_settings
+title: "flow_tracking_settings"
 ---
 
 ## Key

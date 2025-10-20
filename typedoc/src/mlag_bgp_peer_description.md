@@ -1,5 +1,5 @@
 ---
-title: mlag_bgp_peer_description
+title: "mlag_bgp_peer_description"
 ---
 
 ## Key

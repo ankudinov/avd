@@ -1,5 +1,5 @@
 ---
-title: isis_maximum_paths
+title: "isis_maximum_paths"
 ---
 
 ## Key

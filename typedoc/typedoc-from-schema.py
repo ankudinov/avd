@@ -68,7 +68,7 @@ for schema_name, schema_paths in SCHEMAS.items():
             required = False
         md_doc_list = [
             f"---",
-            f"title: {key_title}",
+            f"title: \"{key_title}\"",
             f"---",
             f"",
             f"## Key",

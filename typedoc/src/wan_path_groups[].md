@@ -1,5 +1,5 @@
 ---
-title: wan_path_groups[]
+title: "wan_path_groups[]"
 ---
 
 ## Key

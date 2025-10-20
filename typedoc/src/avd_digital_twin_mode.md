@@ -1,5 +1,5 @@
 ---
-title: avd_digital_twin_mode
+title: "avd_digital_twin_mode"
 ---
 
 ## Key

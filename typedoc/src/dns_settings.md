@@ -1,5 +1,5 @@
 ---
-title: dns_settings
+title: "dns_settings"
 ---
 
 ## Key

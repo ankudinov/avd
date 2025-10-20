@@ -1,5 +1,5 @@
 ---
-title: type
+title: "type"
 ---
 
 ## Key

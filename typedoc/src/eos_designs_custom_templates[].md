@@ -1,5 +1,5 @@
 ---
-title: eos_designs_custom_templates[]
+title: "eos_designs_custom_templates[]"
 ---
 
 ## Key

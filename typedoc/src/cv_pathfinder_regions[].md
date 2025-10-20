@@ -1,5 +1,5 @@
 ---
-title: cv_pathfinder_regions[]
+title: "cv_pathfinder_regions[]"
 ---
 
 ## Key

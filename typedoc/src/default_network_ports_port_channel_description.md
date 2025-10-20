@@ -1,5 +1,5 @@
 ---
-title: default_network_ports_port_channel_description
+title: "default_network_ports_port_channel_description"
 ---
 
 ## Key

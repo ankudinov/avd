@@ -1,5 +1,5 @@
 ---
-title: default_interface_mtu
+title: "default_interface_mtu"
 ---
 
 ## Key

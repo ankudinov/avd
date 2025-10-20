@@ -1,5 +1,5 @@
 ---
-title: avd_eos_designs_structured_config
+title: "avd_eos_designs_structured_config"
 ---
 
 ## Key

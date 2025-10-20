@@ -1,5 +1,5 @@
 ---
-title: cv_settings
+title: "cv_settings"
 ---
 
 ## Key

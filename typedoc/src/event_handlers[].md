@@ -1,5 +1,5 @@
 ---
-title: event_handlers[]
+title: "event_handlers[]"
 ---
 
 ## Key

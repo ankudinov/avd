@@ -1,5 +1,5 @@
 ---
-title: bgp_peer_groups
+title: "bgp_peer_groups"
 ---
 
 ## Key

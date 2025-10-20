@@ -1,5 +1,5 @@
 ---
-title: isis_advertise_passive_only
+title: "isis_advertise_passive_only"
 ---
 
 ## Key

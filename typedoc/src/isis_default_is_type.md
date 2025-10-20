@@ -1,5 +1,5 @@
 ---
-title: isis_default_is_type
+title: "isis_default_is_type"
 ---
 
 ## Key

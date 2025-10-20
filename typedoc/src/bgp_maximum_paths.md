@@ -1,5 +1,5 @@
 ---
-title: bgp_maximum_paths
+title: "bgp_maximum_paths"
 ---
 
 ## Key

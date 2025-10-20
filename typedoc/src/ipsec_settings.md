@@ -1,5 +1,5 @@
 ---
-title: ipsec_settings
+title: "ipsec_settings"
 ---
 
 ## Key

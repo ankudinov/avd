@@ -1,5 +1,5 @@
 ---
-title: p2p_uplinks_qos_profile
+title: "p2p_uplinks_qos_profile"
 ---
 
 ## Key

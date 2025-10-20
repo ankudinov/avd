@@ -1,5 +1,5 @@
 ---
-title: digital_twin
+title: "digital_twin"
 ---
 
 ## Key

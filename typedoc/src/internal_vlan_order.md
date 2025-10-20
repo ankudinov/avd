@@ -1,5 +1,5 @@
 ---
-title: internal_vlan_order
+title: "internal_vlan_order"
 ---
 
 ## Key

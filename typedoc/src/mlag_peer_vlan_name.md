@@ -1,5 +1,5 @@
 ---
-title: mlag_peer_vlan_name
+title: "mlag_peer_vlan_name"
 ---
 
 ## Key

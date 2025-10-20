@@ -1,5 +1,5 @@
 ---
-title: wan_ipsec_profiles
+title: "wan_ipsec_profiles"
 ---
 
 ## Key

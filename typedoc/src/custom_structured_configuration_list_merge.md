@@ -1,5 +1,5 @@
 ---
-title: custom_structured_configuration_list_merge
+title: "custom_structured_configuration_list_merge"
 ---
 
 ## Key

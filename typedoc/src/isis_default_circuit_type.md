@@ -1,5 +1,5 @@
 ---
-title: isis_default_circuit_type
+title: "isis_default_circuit_type"
 ---
 
 ## Key

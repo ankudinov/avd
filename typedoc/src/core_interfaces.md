@@ -1,5 +1,5 @@
 ---
-title: core_interfaces
+title: "core_interfaces"
 ---
 
 ## Key

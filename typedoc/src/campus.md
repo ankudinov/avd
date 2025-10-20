@@ -1,5 +1,5 @@
 ---
-title: campus
+title: "campus"
 ---
 
 ## Key

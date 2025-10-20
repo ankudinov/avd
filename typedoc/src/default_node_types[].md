@@ -1,5 +1,5 @@
 ---
-title: default_node_types[]
+title: "default_node_types[]"
 ---
 
 ## Key

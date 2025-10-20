@@ -1,5 +1,5 @@
 ---
-title: dc_name
+title: "dc_name"
 ---
 
 ## Key

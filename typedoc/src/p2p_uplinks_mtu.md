@@ -1,5 +1,5 @@
 ---
-title: p2p_uplinks_mtu
+title: "p2p_uplinks_mtu"
 ---
 
 ## Key

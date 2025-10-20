@@ -1,5 +1,5 @@
 ---
-title: svi_profiles[]
+title: "svi_profiles[]"
 ---
 
 ## Key

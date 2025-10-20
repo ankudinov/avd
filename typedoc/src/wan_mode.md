@@ -1,5 +1,5 @@
 ---
-title: wan_mode
+title: "wan_mode"
 ---
 
 ## Key

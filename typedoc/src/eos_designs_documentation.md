@@ -1,5 +1,5 @@
 ---
-title: eos_designs_documentation
+title: "eos_designs_documentation"
 ---
 
 ## Key

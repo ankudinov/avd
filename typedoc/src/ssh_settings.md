@@ -1,5 +1,5 @@
 ---
-title: ssh_settings
+title: "ssh_settings"
 ---
 
 ## Key

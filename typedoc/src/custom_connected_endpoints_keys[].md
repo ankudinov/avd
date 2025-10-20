@@ -1,5 +1,5 @@
 ---
-title: custom_connected_endpoints_keys[]
+title: "custom_connected_endpoints_keys[]"
 ---
 
 ## Key

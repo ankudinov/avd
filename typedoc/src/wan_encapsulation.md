@@ -1,5 +1,5 @@
 ---
-title: wan_encapsulation
+title: "wan_encapsulation"
 ---
 
 ## Key

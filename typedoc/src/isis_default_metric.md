@@ -1,5 +1,5 @@
 ---
-title: isis_default_metric
+title: "isis_default_metric"
 ---
 
 ## Key

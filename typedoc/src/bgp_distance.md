@@ -1,5 +1,5 @@
 ---
-title: bgp_distance
+title: "bgp_distance"
 ---
 
 ## Key

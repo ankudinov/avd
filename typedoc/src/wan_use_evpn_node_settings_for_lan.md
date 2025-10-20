@@ -1,5 +1,5 @@
 ---
-title: wan_use_evpn_node_settings_for_lan
+title: "wan_use_evpn_node_settings_for_lan"
 ---
 
 ## Key

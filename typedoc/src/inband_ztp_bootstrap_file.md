@@ -1,5 +1,5 @@
 ---
-title: inband_ztp_bootstrap_file
+title: "inband_ztp_bootstrap_file"
 ---
 
 ## Key

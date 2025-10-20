@@ -1,5 +1,5 @@
 ---
-title: redundancy
+title: "redundancy"
 ---
 
 ## Key
