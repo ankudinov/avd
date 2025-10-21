@@ -39,6 +39,26 @@ SCHEMAS = {
     )
 }
 
+class MdDoc():
+
+    def __init__(self):
+        self.md_doc_string = ""  # init a string for Markdown doc
+
+    def add(self, string_list_to_add: list):
+        for a_string in string_list_to_add:
+            self.md_doc_string += a_string + os.linesep
+        # always add an empty string at the end
+        self.md_doc_string += os.linesep
+
+    def get(self):
+        return self.md_doc_string
+
+# def add_to_doc_sting(target_string, string_list_to_add: list):
+#     for a_string in string_list_to_add:
+#         target_string += a_string + os.linesep
+#     # always add an empty string at the end
+#     target_string += os.linesep
+
 schema_store = create_store(force_rebuild=True)
 
 typedoc_dir = "typedoc/src"
@@ -67,7 +87,8 @@ for schema_name, schema_paths in SCHEMAS.items():
         except:
             required = False
 
-        md_doc_list = [
+        md = MdDoc()
+        md.add([
             f"---",
             f"title: \"{key_title}\"",
             f"---",
@@ -77,36 +98,28 @@ for schema_name, schema_paths in SCHEMAS.items():
             f"Key Name | Type | Required",
             f"---------|------|---------",
             f"`{key_name}` | {v.type} | {v.required}",
-            f""
-        ]
+        ])
 
         try:
             if v.description:
-                md_doc_list.append(f"## Description")
-                md_doc_list.append(f"")
-                md_doc_list.append(v.description)
-                md_doc_list.append(f"")
+                md.add([
+                    f"## Description",
+                    f"",
+                    v.description
+                ])
         except:
             pass
 
-        path_doc_list = [
+        md.add([
             f"## Path",
             f"",
             f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
             f"",
             f"`.{key_name}`",
-            f"",
-        ]
-
-        for a_sting in path_doc_list:
-            md_doc_list.append(a_sting)
-
-        md_doc_string = ""
-        for a_line in md_doc_list:
-            md_doc_string += a_line + os.linesep
+        ])
 
         with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
-            f.write(md_doc_string)
+            f.write(md.get())
 
 # inject index.md temporarily
 with open(f'{typedoc_dir}/index.md', 'w') as f:
