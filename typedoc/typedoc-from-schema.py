@@ -8,7 +8,7 @@ import json
 
 from dataclasses import dataclass
 from pathlib import Path
-from schema_tools.metaschema.meta_schema_model import AristaAvdSchema, AvdSchemaBaseModel
+from schema_tools.metaschema.meta_schema_model import AristaAvdSchema, AvdSchemaBaseModel, AvdSchemaDict
 from schema_tools.store import create_store
 
 REPO_ROOT = Path(__file__).parents[2]
@@ -177,7 +177,8 @@ for schema_name, schema_paths in SCHEMAS.items():
     # if not schema_paths.docs_path:
     #     continue
 
-    schema = AristaAvdSchema(**schema_store[schema_name])
+    # schema = AristaAvdSchema(**schema_store[schema_name])
+    schema = AristaAvdSchema(_resolve_schema="all", **schema_store[schema_name])
     generate_docs_for_keys(schema.keys)
 
 # write sequentially to avoid "too many open files"
