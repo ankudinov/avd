@@ -76,10 +76,27 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
         except:
             required = False
 
+        children_md = []
+        child_keys_md = []
+        if hasattr(v, 'keys'):
+            if v.keys:
+                children_md.append("children:")
+                child_keys_md = [
+                    "## Child Keys",
+                    ""
+                ]
+                for subkey in v.keys.keys():
+                    children_md.append(f"    - {key_name}/{subkey}.md")
+                    child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
+
         md = MdDoc()
         md.add([
             f"---",
-            f"title: \"{key_title}\"",
+            f"title: \"{key_title}\""
+        ])
+        if children_md:
+            md.add(children_md)
+        md.add([
             f"---",
             f"",
             f"## Key",
@@ -107,15 +124,17 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
             f"`.{key_name}`"
         ])
 
-        with open(f'{doc_dir}/{key_name}.md', 'w') as f:
-            f.write(md.get())
-
         if parent_key:
             md.add([
                 f"## Parent Key",
                 f"",
                 f"`{parent_key}`"
             ])
+        if child_keys_md:
+            md.add(child_keys_md)
+
+        with open(f'{doc_dir}/{key_name}.md', 'w') as f:
+            f.write(md.get())
 
     if top_doc_list:
         typedoc_config = {
