@@ -57,7 +57,7 @@ class MdDoc():
     def get(self):
         return self.md_doc_string
 
-def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", doc_dir: str = 'typedoc/src'):
+def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", doc_dir: str = 'typedoc/src', jqpath: str = ""):
 
     if not os.path.exists(doc_dir):
         os.mkdir(doc_dir)
@@ -74,6 +74,13 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
             key_title = key_name + '[ ]'
         else:
             key_title = key_name
+
+        if not jqpath:
+            jqpath = f".{key_name}"
+        else:
+            jqpath = f"{jqpath}.{key_name}"
+        if v.type == 'list':
+            jqpath = jqpath + '[]'
 
         required = False
         if hasattr(v, 'required'):
@@ -92,7 +99,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
                     children_md.append(f"    - {key_name}/{subkey}.md")
                     child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
 
-                generate_docs_for_keys(v.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name))
+                generate_docs_for_keys(v.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jqpath=jqpath)
 
         if v.type == 'list' and hasattr(v.items, 'type'):
             if v.items.type == 'dict' and v.items.keys:
@@ -106,7 +113,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
                         children_md.append(f"    - {key_name}/{subkey}.md")
                         child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
 
-                    generate_docs_for_keys(v.items.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name))
+                    generate_docs_for_keys(v.items.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jqpath=jqpath)
 
         md = MdDoc()
         md.add([
@@ -140,7 +147,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
             f"",
             f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
             f"",
-            f"`.{key_name}`"
+            f"`{jqpath}`"
         ])
 
         if parent_key:
