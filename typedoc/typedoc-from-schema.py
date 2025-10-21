@@ -161,7 +161,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
     if top_doc_list:
         typedoc_config = {
             "searchInComments": True,
-            # "searchInDocuments": True,
+            "searchInDocuments": True,
             "$schema": "https://typedoc.org/schema.json",
             "logLevel": "Verbose",
             "readme": "src/index.md",
