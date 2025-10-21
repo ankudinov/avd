@@ -94,7 +94,7 @@ for schema_name, schema_paths in SCHEMAS.items():
             f"",
             f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
             f"",
-            f".{key_name}",
+            f"`.{key_name}`",
             f"",
         ]
 
