@@ -104,11 +104,18 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
             f"",
             f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
             f"",
-            f"`.{key_name}`",
+            f"`.{key_name}`"
         ])
 
         with open(f'{doc_dir}/{key_name}.md', 'w') as f:
             f.write(md.get())
+
+        if parent_key:
+            md.add([
+                f"## Parent Key",
+                f"",
+                f"`{parent_key}`"
+            ])
 
     if top_doc_list:
         typedoc_config = {
