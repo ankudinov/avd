@@ -53,34 +53,23 @@ class MdDoc():
     def get(self):
         return self.md_doc_string
 
-# def add_to_doc_sting(target_string, string_list_to_add: list):
-#     for a_string in string_list_to_add:
-#         target_string += a_string + os.linesep
-#     # always add an empty string at the end
-#     target_string += os.linesep
+def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", doc_dir: str = 'typedoc/src'):
 
-schema_store = create_store(force_rebuild=True)
+    if not os.path.exists(doc_dir):
+        os.mkdir(doc_dir)
 
-typedoc_dir = "typedoc/src"
-if not os.path.exists(typedoc_dir):
-    os.mkdir(typedoc_dir)
+    top_doc_list = list()
 
-top_doc_list = list()
+    for key_name, v in keys_schema.items():
 
-for schema_name, schema_paths in SCHEMAS.items():
-    # if not schema_paths.docs_path:
-    #     continue
-
-    schema = AristaAvdSchema(**schema_store[schema_name])
-    schema_dict=schema.keys
-    for key_name, v in schema.keys.items():
+        # if parent key is not set - index top level documents
+        if not parent_key:
+            top_doc_list.append(f"src/{key_name}.md")
 
         if v.type == 'list':
             key_title = key_name + '[ ]'
         else:
             key_title = key_name
-
-        top_doc_list.append(f"src/{key_name}.md")
 
         try:
             required = v.required
@@ -118,22 +107,31 @@ for schema_name, schema_paths in SCHEMAS.items():
             f"`.{key_name}`",
         ])
 
-        with open(f'{typedoc_dir}/{key_name}.md', 'w') as f:
+        with open(f'{doc_dir}/{key_name}.md', 'w') as f:
             f.write(md.get())
 
+    if top_doc_list:
+        typedoc_config = {
+            "searchInComments": True,
+            "searchInDocuments": True,
+            "$schema": "https://typedoc.org/schema.json",
+            "logLevel": "Verbose",
+            "readme": "src/index.md",
+            "projectDocuments": top_doc_list,
+            "out": "site"
+        }
+        with open("typedoc/typedoc.config.jsonc", "w") as f:
+            json.dump(typedoc_config, f, indent=4)
+
+schema_store = create_store(force_rebuild=True)
+
+for schema_name, schema_paths in SCHEMAS.items():
+    # if not schema_paths.docs_path:
+    #     continue
+
+    schema = AristaAvdSchema(**schema_store[schema_name])
+    generate_docs_for_keys(schema.keys)
+
 # inject index.md temporarily
-with open(f'{typedoc_dir}/index.md', 'w') as f:
+with open(f'typedoc/src/index.md', 'w') as f:
     f.write("# TEST\n\ntest\n")
-
-typedoc_config = {
-    "searchInComments": True,
-    "searchInDocuments": True,
-    "$schema": "https://typedoc.org/schema.json",
-    "logLevel": "Verbose",
-    "readme": "src/index.md",
-    "projectDocuments": top_doc_list,
-    "out": "site"
-}
-
-with open("typedoc/typedoc.config.jsonc", "w") as f:
-    json.dump(typedoc_config, f, indent=4)
