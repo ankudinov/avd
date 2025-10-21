@@ -81,11 +81,11 @@ for schema_name, schema_paths in SCHEMAS.items():
         ]
 
         try:
-            md_doc_list.append(f"## Description")
-            md_doc_list.append(f"")
             if v.description:
+                md_doc_list.append(f"## Description")
+                md_doc_list.append(f"")
                 md_doc_list.append(v.description)
-            md_doc_list.append(f"")
+                md_doc_list.append(f"")
         except:
             pass
 
