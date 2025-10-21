@@ -66,6 +66,7 @@ for schema_name, schema_paths in SCHEMAS.items():
             required = v.required
         except:
             required = False
+
         md_doc_list = [
             f"---",
             f"title: \"{key_title}\"",
@@ -75,8 +76,27 @@ for schema_name, schema_paths in SCHEMAS.items():
             f"",
             f"Key Name | Type | Required",
             f"---------|------|---------",
-            f"`{key_name}` | {v.type} | {v.required}"
+            f"`{key_name}` | {v.type} | {v.required}",
+            f""
         ]
+
+        try:
+            md_doc_list.append(f"## Description")
+            md_doc_list.append(f"")
+            if v.description:
+                md_doc_list.append(v.description)
+            md_doc_list.append(f"")
+        except:
+            pass
+
+        path_doc_list = [
+            f"## Path",
+            f"",
+            f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
+            f"",
+            f".{key_name}"
+        ]
+
         md_doc_string = ""
         for a_line in md_doc_list:
             md_doc_string += a_line + os.linesep
