@@ -129,7 +129,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
             md.add([
                 f"## Parent Key",
                 f"",
-                f"- [`{key_name}`](../{key_name}.md)"
+                f"- [`{parent_key}`](../{parent_key}.md)"
             ])
         if child_keys_md:
             md.add(child_keys_md)
