@@ -94,8 +94,12 @@ for schema_name, schema_paths in SCHEMAS.items():
             f"",
             f"> NOTE: We are using the [same format as jq](https://jqlang.org/) to specify the path to the key.",
             f"",
-            f".{key_name}"
+            f".{key_name}",
+            f"",
         ]
+
+        for a_sting in path_doc_list:
+            md_doc_list.append(a_sting)
 
         md_doc_string = ""
         for a_line in md_doc_list:
