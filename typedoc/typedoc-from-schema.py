@@ -39,6 +39,10 @@ SCHEMAS = {
     )
 }
 
+# init a list to store all (path, doc) tuples
+# this is required to write sequentially and avoid "too many open files"
+path_doc_list = list()
+
 class MdDoc():
 
     def __init__(self):
@@ -90,6 +94,20 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
 
                 generate_docs_for_keys(v.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name))
 
+        if v.type == 'list' and hasattr(v.items, 'type'):
+            if v.items.type == 'dict' and v.items.keys:
+                children_md.append("children:")
+                child_keys_md = [
+                    "## Child Keys",
+                    ""
+                ]
+                if hasattr(v.items, 'keys'):
+                    for subkey in v.items.keys.keys():
+                        children_md.append(f"    - {key_name}/{subkey}.md")
+                        child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
+
+                    generate_docs_for_keys(v.items.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name))
+
         md = MdDoc()
         md.add([
             f"---",
@@ -134,8 +152,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
         if child_keys_md:
             md.add(child_keys_md)
 
-        with open(f'{doc_dir}/{key_name}.md', 'w') as f:
-            f.write(md.get())
+        path_doc_list.append((f'{doc_dir}/{key_name}.md', md.get()))
 
     if top_doc_list:
         typedoc_config = {
@@ -159,6 +176,13 @@ for schema_name, schema_paths in SCHEMAS.items():
     schema = AristaAvdSchema(**schema_store[schema_name])
     generate_docs_for_keys(schema.keys)
 
+# write sequentially to avoid "too many open files"
+for path, doc in path_doc_list:
+    with open(path, 'w') as f:
+        f.write(doc)
+        f.close()
+
 # inject index.md temporarily
 with open(f'typedoc/src/index.md', 'w') as f:
     f.write("# TEST\n\ntest\n")
+    f.close()

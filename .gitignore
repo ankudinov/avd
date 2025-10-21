@@ -79,3 +79,7 @@ Cargo.lock
 
 # Coverage
 /lcov.info
+
+# typedoc
+typedoc/src/
+typedoc/typedoc.config.jsonc
