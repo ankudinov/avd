@@ -57,7 +57,7 @@ class MdDoc():
     def get(self):
         return self.md_doc_string
 
-def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", doc_dir: str = 'typedoc/src', jqpath: str = ""):
+def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", doc_dir: str = 'typedoc/src', jq_root: str = ""):
 
     if not os.path.exists(doc_dir):
         os.mkdir(doc_dir)
@@ -75,10 +75,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
         else:
             key_title = key_name
 
-        if not jqpath:
-            jqpath = f".{key_name}"
-        else:
-            jqpath = f"{jqpath}.{key_name}"
+        jqpath = f"{jq_root}.{key_name}"
         if v.type == 'list':
             jqpath = jqpath + '[]'
 
@@ -99,7 +96,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
                     children_md.append(f"    - {key_name}/{subkey}.md")
                     child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
 
-                generate_docs_for_keys(v.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jqpath=jqpath)
+                generate_docs_for_keys(v.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jq_root=jqpath)
 
         if v.type == 'list' and hasattr(v.items, 'type'):
             if v.items.type == 'dict' and v.items.keys:
@@ -181,7 +178,7 @@ for schema_name, schema_paths in SCHEMAS.items():
     #     continue
 
     schema = AristaAvdSchema(**schema_store[schema_name])
-    generate_docs_for_keys(schema.keys, jqpath="")
+    generate_docs_for_keys(schema.keys)
 
 # write sequentially to avoid "too many open files"
 for path, doc in path_doc_list:
