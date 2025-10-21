@@ -181,7 +181,7 @@ for schema_name, schema_paths in SCHEMAS.items():
     #     continue
 
     schema = AristaAvdSchema(**schema_store[schema_name])
-    generate_docs_for_keys(schema.keys)
+    generate_docs_for_keys(schema.keys, jqpath="")
 
 # write sequentially to avoid "too many open files"
 for path, doc in path_doc_list:
