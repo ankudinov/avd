@@ -35,6 +35,7 @@ jobs:
           python3 ./typedoc/typedoc-from-schema.py
           npm install --save-dev typedoc
           npx typedoc --options typedoc/typedoc.config.jsonc
+          du -hs ./typedoc/site/
 
       - name: Setup Pages 📖
         uses: actions/configure-pages@v5

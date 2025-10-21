@@ -110,7 +110,7 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, parent_key: str = "", d
                         children_md.append(f"    - {key_name}/{subkey}.md")
                         child_keys_md.append(f"- [`{subkey}`]({key_name}/{subkey}.md)")
 
-                    generate_docs_for_keys(v.items.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jqpath=jqpath)
+                    generate_docs_for_keys(v.items.keys, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jq_root=jqpath)
 
         md = MdDoc()
         md.add([
