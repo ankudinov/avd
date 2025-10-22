@@ -34,21 +34,21 @@ jobs:
         run: |
           pip3 install -r ansible_collections/arista/avd/requirements-dev.txt --upgrade
           python3 ./typedoc/typedoc-from-schema.py
-      #     npm install --save-dev typedoc
-      #     npx typedoc --options typedoc/typedoc.config.jsonc
-      #     du -hs ./typedoc/site/
+          npm install --save-dev typedoc
+          npx typedoc --options typedoc/typedoc.config.jsonc
+          du -hs ./typedoc/site/
 
-      - name: Install latest mdbook
-        run: |
-          tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
-          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
-          curl -sSL $url | tar -xz --directory=./mdbook
-          echo `pwd`/mdbook >> $GITHUB_PATH
-      - name: Build Book
-        run: |
-          python3 ./mdbook/mdbook-from-schema.py
-          cd mdbook
-          mdbook build
+      # - name: Install latest mdbook
+      #   run: |
+      #     tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
+      #     url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+      #     curl -sSL $url | tar -xz --directory=./mdbook
+      #     echo `pwd`/mdbook >> $GITHUB_PATH
+      # - name: Build Book
+      #   run: |
+      #     python3 ./mdbook/mdbook-from-schema.py
+      #     cd mdbook
+      #     mdbook build
 
       - name: Setup Pages 📖
         uses: actions/configure-pages@v5
@@ -56,8 +56,8 @@ jobs:
       - name: Upload artifact 🔼
         uses: actions/upload-pages-artifact@v3
         with:
-          # path: ./typedoc/site/
-          path: ./mdbook/book
+          path: ./typedoc/site/
+          # path: ./mdbook/book
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment

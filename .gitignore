@@ -85,3 +85,4 @@ typedoc/src/
 typedoc/typedoc.config.jsonc
 # mdbook
 mdbook/src/
+mdbook/book/
