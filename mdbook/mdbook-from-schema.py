@@ -4,6 +4,7 @@ import sys
 sys.path.insert(0,'./python-avd')
 
 import os
+import pathlib
 import json
 import time
 
@@ -79,6 +80,13 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, summary_doc: MdDoc, par
         if hasattr(v, 'required'):
             required = v.required
 
+        mdbook_path = str(pathlib.Path(
+            *pathlib.Path(f"{doc_dir}").parts[2:]
+        ))
+        summary_doc.add([
+            "    "*recursion_depth + f"- [{key_title}]({mdbook_path}/{key_name}.md)"
+        ], add_linesep=False)
+
         children_md = []
         child_keys_md = []
         if hasattr(v, 'keys'):
@@ -109,14 +117,14 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, summary_doc: MdDoc, par
                     summary_doc = generate_docs_for_keys(v.items.keys, summary_doc, parent_key=key_name, doc_dir=os.path.join(doc_dir, key_name), jq_root=jqpath, recursion_depth=recursion_depth+1)
 
         md = MdDoc()
+        # md.add([
+        #     f"---",
+        #     f"title: \"{key_title}\""
+        # ])
+        # if children_md:
+        #     md.add(children_md)
         md.add([
-            f"---",
-            f"title: \"{key_title}\""
-        ])
-        if children_md:
-            md.add(children_md)
-        md.add([
-            f"---",
+            # f"---",
             f"",
             f"## Key",
             f"",
@@ -152,10 +160,6 @@ def generate_docs_for_keys(keys_schema: AristaAvdSchema, summary_doc: MdDoc, par
         if child_keys_md:
             md.add(child_keys_md)
 
-        summary_doc.add([
-            "    "*recursion_depth + f"- [{key_title}]({doc_dir}/{key_name}.md)"
-        ], add_linesep=False)
-
         path_doc_list.append((f'{doc_dir}/{key_name}.md', md.get()))
 
     return summary_doc
@@ -176,16 +180,15 @@ for schema_name, schema_paths in SCHEMAS.items():
     # schema = AristaAvdSchema(**schema_store[schema_name])
     schema = AristaAvdSchema(_resolve_schema="all", **schema_store[schema_name])
 
-    summary = generate_docs_for_keys(schema.keys, summary)
+    # summary = generate_docs_for_keys(schema.keys, summary)
+    summary = generate_docs_for_keys(schema.keys['aaa_settings'].keys, summary)
 
     with open("mdbook/src/SUMMARY.md", "w") as f:
         f.write(summary.get())
         f.close()
 
 # write sequentially to avoid "too many open files"
-i=0
 for path, doc in path_doc_list:
-    i += 1
     # try to write file until successful in case filesystem is slow and runs out of descriptors anyway
     while True:
         try:
@@ -195,4 +198,3 @@ for path, doc in path_doc_list:
                 break
         except:
             print(f"Trying to write {path} again!")
-print(i)
