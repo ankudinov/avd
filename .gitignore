@@ -83,3 +83,5 @@ Cargo.lock
 # typedoc
 typedoc/src/
 typedoc/typedoc.config.jsonc
+# mdbook
+mdbook/src/

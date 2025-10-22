@@ -7,6 +7,7 @@ on:
     - typedoc/src/**
     - .github/workflows/publish-pages.yml
     - typedoc/typedoc-from-schema.py
+    - mdbook/mdbook-from-schema.py
   workflow_dispatch:
     branches: [ devel, typedoc-preview ]
 permissions:
@@ -26,16 +27,29 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: setup Node
-        uses: actions/setup-node@v5
+      # - name: setup Node
+      #   uses: actions/setup-node@v5
 
-      - name: Build Site
+      # - name: Build Site
+      #   run: |
+      #     pip3 install -r ansible_collections/arista/avd/requirements-dev.txt --upgrade
+      #     python3 ./typedoc/typedoc-from-schema.py
+      #     npm install --save-dev typedoc
+      #     npx typedoc --options typedoc/typedoc.config.jsonc
+      #     du -hs ./typedoc/site/
+
+      - name: Install latest mdbook
         run: |
-          pip3 install -r ansible_collections/arista/avd/requirements-dev.txt --upgrade
-          python3 ./typedoc/typedoc-from-schema.py
-          npm install --save-dev typedoc
-          npx typedoc --options typedoc/typedoc.config.jsonc
-          du -hs ./typedoc/site/
+          tag=$(curl 'https://api.github.com/repos/rust-lang/mdbook/releases/latest' | jq -r '.tag_name')
+          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+          mkdir mdbook
+          curl -sSL $url | tar -xz --directory=./mdbook
+          echo `pwd`/mdbook >> $GITHUB_PATH
+      - name: Build Book
+        run: |
+          python3 ./mdbook/mdbook-from-schema.py
+          cd mdbook
+          mdbook build
 
       - name: Setup Pages 📖
         uses: actions/configure-pages@v5
