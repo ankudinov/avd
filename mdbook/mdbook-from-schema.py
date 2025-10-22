@@ -180,8 +180,8 @@ for schema_name, schema_paths in SCHEMAS.items():
     # schema = AristaAvdSchema(**schema_store[schema_name])
     schema = AristaAvdSchema(_resolve_schema="all", **schema_store[schema_name])
 
-    # summary = generate_docs_for_keys(schema.keys, summary)
-    summary = generate_docs_for_keys(schema.keys['aaa_settings'].keys, summary)
+    summary = generate_docs_for_keys(schema.keys, summary)
+    # summary = generate_docs_for_keys(schema.keys['aaa_settings'].keys, summary)
 
     with open("mdbook/src/SUMMARY.md", "w") as f:
         f.write(summary.get())
