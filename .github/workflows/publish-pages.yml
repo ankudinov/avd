@@ -30,10 +30,10 @@ jobs:
       # - name: setup Node
       #   uses: actions/setup-node@v5
 
-      # - name: Build Site
-      #   run: |
-      #     pip3 install -r ansible_collections/arista/avd/requirements-dev.txt --upgrade
-      #     python3 ./typedoc/typedoc-from-schema.py
+      - name: Build Site
+        run: |
+          pip3 install -r ansible_collections/arista/avd/requirements-dev.txt --upgrade
+          python3 ./typedoc/typedoc-from-schema.py
       #     npm install --save-dev typedoc
       #     npx typedoc --options typedoc/typedoc.config.jsonc
       #     du -hs ./typedoc/site/
