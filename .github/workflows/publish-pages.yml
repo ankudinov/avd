@@ -4,7 +4,7 @@ on:
   push:
     branches: [ devel, typedoc-preview ]
     paths:
-    - typedoc/src/**
+    - typedoc/**
     - .github/workflows/publish-pages.yml
     - typedoc/typedoc-from-schema.py
     # - mdbook/mdbook-from-schema.py
