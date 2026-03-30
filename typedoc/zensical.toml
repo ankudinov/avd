@@ -1,0 +1,4 @@
+[project]
+site_name = "AVD Schema Reference"
+docs_dir = "tmp"
+site_dir = "site"
